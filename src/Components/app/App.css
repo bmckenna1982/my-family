@@ -110,6 +110,34 @@ ul {
   font-size: 1.5em;
 }
 
+.upcoming-events h2 {
+  margin-bottom: 5px;
+}
+
+.calendar-link {
+  margin-bottom: 15px;
+}
+
+.event-container {
+  display: flex;  
+  justify-content: space-between;
+}
+
+.event-day {
+  width: 70px;
+  text-align: left;
+  /* flex: 1;
+  font-size: 1.5em;  */
+}
+
+/* .event-time {
+  flex: 1;
+} */
+
+/* .event-title {
+  flex: 1;
+} */
+
 legend {
   width: 100%;
 }
@@ -166,22 +194,38 @@ legend {
   padding-left: 10px;
 }
 
-.task {
+.tasks-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.task {
+  display: flex;
+  /* justify-content: space; */
+  width: 100%;
+}
+
+.taskCheck {
+  width: 30px;
+  height: 30px;  
 }
 
 .task_desc {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-left: 30px;
+  text-align: left;
+  /* margin: auto; */
 }
 
-.point_value {
+/* .point_value {
   padding-left: 20px;
-}
+} */
 
 .dueDate {
-  text-align: left;
+  text-align: left;  
 }
 
 .tip {
