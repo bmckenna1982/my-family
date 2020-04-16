@@ -1,0 +1,18 @@
+.task {
+  padding: 5px 0;
+  display: flex;
+  width: 100%;
+}
+
+.task:nth-child(even) {
+  background-color: #ddd;  
+}
+
+.task-desc {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0px 15px;
+  text-align: left;
+  /* margin: auto; */
+}

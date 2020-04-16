@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router-dom'
+import { Route, withRouter, Switch } from 'react-router-dom'
 import Nav from '../nav/nav'
-import Header from '../header/header'
-import UpcomingEvents from '../upcomingEvents/upcomingEvents'
-import UpcomingTasks from '../upcomingTasks/upcomingTasks'
-import LatestLists from '../latestLists/latestLists'
+import HomePage from '../homePage/homePage'
+import Login from '../login/login'
+import Register from '../register/register'
+import Calendar from '../calendar/calendar'
+import TasksPage from '../tasksPage/tasksPage'
 import './App.css';
 
 class App extends Component {
@@ -20,10 +21,13 @@ class App extends Component {
       <div className="App">
         <Nav />
         <main role='main'>
-          <Header />
-          <UpcomingEvents />
-          <UpcomingTasks />
-          <LatestLists />
+          <Switch>
+            <Route exact path='/' component={HomePage} />
+            <Route exact path='/log-in' component={Login} />
+            <Route exact path='/register' component={Register} />
+            <Route exact path='/calendar' component={Calendar} />
+            <Route exact path='/tasks' component={TasksPage} />
+          </Switch>
         </main>
         <footer role='contentinfo'>Footer</footer>
       </div>

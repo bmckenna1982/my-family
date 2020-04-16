@@ -1,0 +1,7 @@
+.registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 45px 15px;
+  height: calc(100vh - 45px);
+}

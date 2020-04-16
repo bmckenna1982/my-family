@@ -5,7 +5,7 @@ class Header extends Component {
   render() {
     return (
       <header className='header' role='banner'>
-        <h1>Daily Overview</h1>
+        <h1>{this.props.pageTitle}</h1>
         <PointsBar />
       </header>
     )
