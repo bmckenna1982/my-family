@@ -5,10 +5,17 @@ nav {
   right: 0;
   z-index: 10;
   display: flex;
-  justify-content: space-between;
-  padding: 1% 5px;
+  justify-content: space-between;  
   line-height: 35px;
   vertical-align: middle;
+}
+
+.hamburger {
+  padding: 1% 5px;
+}
+
+.app-name {
+  padding: 1% 5px;
 }
 
 .bar1, .bar2, .bar3 {
@@ -34,6 +41,7 @@ transition: 0.4s;
   background: #888;
   height: 100vh;
   padding: 10px;
+  margin: 0;
 }
 
 .close {

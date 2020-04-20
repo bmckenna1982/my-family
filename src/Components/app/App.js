@@ -6,6 +6,8 @@ import Login from '../login/login'
 import Register from '../register/register'
 import Calendar from '../calendar/calendar'
 import TasksPage from '../tasksPage/tasksPage'
+import ListPage from '../listsPage/listsPage'
+import FamilyPage from '../familyPage/familyPage'
 import './App.css';
 
 class App extends Component {
@@ -27,6 +29,8 @@ class App extends Component {
             <Route exact path='/register' component={Register} />
             <Route exact path='/calendar' component={Calendar} />
             <Route exact path='/tasks' component={TasksPage} />
+            <Route exact path='/lists' component={ListPage} />
+            <Route exact path='/family' component={FamilyPage} />
           </Switch>
         </main>
         <footer role='contentinfo'>Footer</footer>

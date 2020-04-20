@@ -1,7 +1,12 @@
 * {
     box-sizing: border-box;
   }
-  
+
+.App {
+  height: 100vh;
+  position: relative;
+}
+
 body {
   font-family: "Open Sans",
   sans-serif;
@@ -16,8 +21,8 @@ body {
 }
 
 main {
-  flex: 1;
-  /* min-height: calc(100vh - 45px); */
+  /* flex: 1; */
+  min-height: calc(100vh - 45px);
 }
 nav,
 footer {

@@ -14,13 +14,13 @@ class Register extends Component {
   render() {
     const { error } = this.state;
     return (
-      <section class="registration">
-        <form class='register-form'>
+      <section className="registration">
+        <form className='register-form'>
           <div role='alert'>{error && <p className='red'>{error}</p>}</div>
           {/* <legend>Register using your family code</legend> */}
           <div>
             <input type="checkbox" name='create-checkbox' id='create-checkbox' />
-            <label for="create-checkbox">I'm creating a new family account</label>
+            <label htmlFor="create-checkbox">I'm creating a new family account</label>
           </div>
           <div>
             {/* <label for="first-name">First name</label> */}

@@ -22,8 +22,12 @@ class Nav extends Component {
           <li className='nav-item' onClick={changeNav}>
             <NavLink to='/tasks'>Tasks</NavLink>
           </li>
-          <li className='nav-item'>Lists</li>
-          <li className='nav-item'>Family</li>
+          <li className='nav-item' onClick={changeNav}>
+            <NavLink to='/lists'>Lists</NavLink>
+          </li>
+          <li className='nav-item' onClick={changeNav}>
+            <NavLink to='/family'>Family</NavLink>
+          </li>
           <li className='nav-item' onClick={changeNav}>
             <NavLink to='/log-in'>Log in</NavLink>
           </li>

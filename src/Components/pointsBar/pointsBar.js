@@ -5,7 +5,7 @@ class PointsBar extends Component {
     return (
       <div className='points-status-container'>
         <div className='points'>Point total: 130</div>
-        <div className='leader'>Leader: Keean - 130</div>
+        <div className='leader'>Next tier: 200</div>
       </div>
     )
   }

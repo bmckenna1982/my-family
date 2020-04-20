@@ -1,36 +1,77 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
+import List from '../list/list'
+import TaskCheck from '../taskCheck/taskCheck'
 import './listsPage.css'
 
 class ListsPage extends Component {
+  static defaultProps = {
+    lists: [
+      {
+        name: 'Groceries',
+        items: [
+          {
+            itemName: 'Milk',
+            checked: false
+          },
+          {
+            itemName: 'Yogurt',
+            checked: false
+          },
+          {
+            itemName: 'Swiss Cheese',
+            checked: false
+          },
+          {
+            itemName: 'Coffee Creamer',
+            checked: true
+          }
+        ]
+      },
+      {
+        name: 'Home Improvement',
+        items: [
+          {
+            itemName: 'Garden Edging',
+            checked: false
+          },
+          {
+            itemName: 'Mulch',
+            checked: false
+          },
+          {
+            itemName: 'PVC Primer',
+            checked: true
+          },
+          {
+            itemName: 'Sprinkler controller',
+            checked: true
+          },
+        ]
+      }
+    ],
+
+  }
+
   render() {
     return (
       <div className='Shopping Lists'>
-        <Header title='Shopping Lists' />
-        <section>
-          <h2>Groceries</h2>
-          <div class='add_item'>+ Add Item </div>
-          <div class='shoppingList_container'>
-            <ul class='shoppingList'>
-              <li class='shoppingList_item'>
-                <div class='checkbox'>☑</div>
-                <div class='item_desc'>Milk</div>
-              </li>
-              <li class='shoppingList_item'>
-                <div class='checkbox'>☐</div>
-                <div class='item_desc'>Yogurt</div>
-              </li>
-              <li class='shoppingList_item'>
-                <div class='checkbox'>☐</div>
-                <div class='item_desc'>Swiss Cheese</div>
-              </li>
-              <li class='shoppingList_item'>
-                <div class='checkbox'>☐</div>
-                <div class='item_desc'>Coffee Creamer</div>
-              </li>
-            </ul>
-          </div>
-        </section>
+        <Header pageTitle='Shopping Lists' />
+        {this.props.lists.map(list =>
+          (
+            <section className='list-container' key={list.name}>
+              <h2>{list.name}</h2>
+              <div className='add_item'>+ Add Item </div>
+              {list.items.map(item => (
+                <div className='list-item-container' key={item.itemName}>
+                  <TaskCheck checked={item.checked} />
+                  <div className='list-item'>{item.itemName}</div>
+                </div>
+              ))}
+              {/* <List /> */}
+            </section>
+          ))
+        }
       </div>
     )
   }

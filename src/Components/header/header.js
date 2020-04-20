@@ -6,7 +6,6 @@ class Header extends Component {
     return (
       <header className='header' role='banner'>
         <h1>{this.props.pageTitle}</h1>
-        <PointsBar />
       </header>
     )
   }

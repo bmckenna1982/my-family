@@ -1,0 +1,35 @@
+.calendar-month-view {
+  width: 100%;
+  /* height: calc(100vh - 45px); */
+}
+
+.calendar-page-month {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.calendar-body {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-grow: 1;
+}
+.calendar-month-view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.calendar-header-container {
+  display: flex;
+}
+
+.week-day, .calendar-day {
+  flex: 1;
+}
+
+.calendar-row {
+  display: flex;  
+}

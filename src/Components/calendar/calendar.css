@@ -1,0 +1,12 @@
+.calendar {
+  height: calc(100vh - 45px);
+}
+
+.rbc-calendar {
+    padding-top: 45px;
+    height: calc(100vh - 45px);
+}
+
+.rbc-toolbar-label {
+  font-size: 1.5em;
+}
