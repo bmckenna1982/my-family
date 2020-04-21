@@ -1,12 +1,11 @@
 .calendar {
-  height: calc(100vh - 45px);
+  height: 100%;
 }
 
-.rbc-calendar {
-    padding-top: 45px;
-    height: calc(100vh - 45px);
+.calendar-wrapper {
+  height: 100%;
 }
 
-.rbc-toolbar-label {
-  font-size: 1.5em;
+.calendar-month {
+  padding-bottom: 20px;
 }

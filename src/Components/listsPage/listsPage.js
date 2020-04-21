@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../header/header'
 import List from '../list/list'
 import TaskCheck from '../taskCheck/taskCheck'
+import AddItem from '../addItem/addItem'
 import './listsPage.css'
 
 class ListsPage extends Component {
@@ -61,7 +62,7 @@ class ListsPage extends Component {
           (
             <section className='list-container' key={list.name}>
               <h2>{list.name}</h2>
-              <div className='add_item'>+ Add Item </div>
+              <AddItem itemName='Item' />
               {list.items.map(item => (
                 <div className='list-item-container' key={item.itemName}>
                   <TaskCheck checked={item.checked} />

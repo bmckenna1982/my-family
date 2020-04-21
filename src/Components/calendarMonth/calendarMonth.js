@@ -81,8 +81,8 @@ class CalendarMonth extends Component {
 
 
     return (
-      <div className='calendar-page-month'>
-        <Header pageTitle='Calendar' />
+      <div className='calendar-page-month calendar-close' id='month' >
+        {/* <Header pageTitle='Calendar' /> */}
         <div className='calendar-month-view'>
           <div className='calendar-header-container'> {weekdayShortName} </div>
           <div className='calendar-body' >{daysinmonth}</div>

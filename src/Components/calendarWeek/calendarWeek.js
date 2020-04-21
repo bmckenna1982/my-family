@@ -18,7 +18,7 @@ class CalendarWeek extends Component {
       })
     }
     return (
-      <div className='wrapper' >
+      <div className='calendar-week-wrapper' id='week'>
         {days.map(day => (
           <div className='calendar-week' key={day.dayOfWeek}>
             <div className='calendar-day-container'>

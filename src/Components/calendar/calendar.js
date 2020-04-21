@@ -1,43 +1,48 @@
 import React, { Component } from 'react'
-import { Calendar, momentLocalizer } from 'react-big-calendar'
-import moment from 'moment'
-import "react-big-calendar/lib/css/react-big-calendar.css";
-import './calendar.css'
 import CalendarWeek from '../calendarWeek/calendarWeek'
 import CalendarMonth from '../calendarMonth/calendarMonth'
 
 
-class CalendarPage extends Component {
-  render() {
-    const localizer = momentLocalizer(moment)
-    const myEventsList = [
-      {
-        start: moment().toDate(),
-        end: moment()
-          .add(1, "days")
-          .toDate(),
-        title: "Some title"
-      }
-    ]
+class Calendar extends Component {
+  constructor(props) {
+    super(props)
 
-    const MyCalendar = props => (
-      <div className='calendar-page'>
-        <Calendar
-          localizer={localizer}
-          events={myEventsList}
-          startAccessor="start"
-          endAccessor="end"
-        // style={{ height: 500 }}
-        />
-      </div>
-    )
+    this.state = {
+      monthView: false
+    }
+  }
+
+  handleClick = (e) => {
+    e.preventDefault()
+    console.log('click')
+    document.querySelector('#month').classList.toggle('calendar-close')
+    document.querySelector('#week').classList.toggle('calendar-close')
+  }
+  render() {
     return (
-      // MyCalendar()
       <div className='calendar'>
-        <CalendarMonth />
+        <header className='calendar-month' role='banner'>
+          <h1>April</h1>
+          <div className='add-item'>+ Add Item </div>
+        </header>
+        <div className='tab-selection'>
+          {/* instead of tab make it two divs one says view week one says view month
+          each sets the close to the other view */}
+          <div className='week-tab' onClick={this.handleClick}>Week</div>
+          <div className='month-tab' onClick={this.handleClick}>Month</div>
+        </div>
+        <div className='calendar-wrapper'>
+          {/* if week view show the today and the following 6 days */}
+          <CalendarWeek />
+
+          {/* if month view show the current month */}
+          <CalendarMonth />
+          {/* <Calendar-Day /> */}
+
+        </div>
       </div>
     )
   }
 }
 
-export default CalendarPage
+export default Calendar

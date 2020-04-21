@@ -6,6 +6,10 @@
 .calendar-page-month {
   display: flex;
   flex-direction: column;
+  height: 100%;  
+}
+
+.calendar-wrapper {
   height: 100%;
 }
 
@@ -31,5 +35,17 @@
 }
 
 .calendar-row {
-  display: flex;  
+  display: flex;
+  height: 17vw;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.calendar-close {
+  display: none;
+}
+
+.week {
+  display: flex;
 }

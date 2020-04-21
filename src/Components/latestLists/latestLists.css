@@ -1,0 +1,15 @@
+.latest-list-container {
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: ;
+}
+
+.icon-plus {
+  height: auto;
+  padding-left: 15px;
+}
+
+.icon-plus:hover {
+  cursor: pointer;  
+}
