@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import './addItemLink.css'
 
-class AddItem extends Component {
+class AddItemLink extends Component {
   render() {
     return (
       <div className='icon-plus' onClick={this.handleClick}>
@@ -12,4 +13,4 @@ class AddItem extends Component {
   }
 }
 
-export default AddItem
+export default AddItemLink

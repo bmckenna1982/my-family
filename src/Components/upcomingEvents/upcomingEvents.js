@@ -1,13 +1,16 @@
 import React, { Component } from "react"
+import { Link } from 'react-router-dom'
 import Event from '../event/event'
-import AddItem from '../addItem/addItem'
+import AddItemLink from '../addItemLink/addItemLink'
 
 class UpcomingEvents extends Component {
   render() {
     return (
       <section className='upcoming-events'>
         <h2>Upcoming Events</h2>
-        <AddItem itemName='Event' />
+        <Link to='/add-event' >
+          <AddItemLink itemName='Event' />
+        </Link>
         {/* <div className='calendar-link'>
           <a href='/calendar'>View Calendar</a>
         </div> */}

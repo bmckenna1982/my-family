@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import Task from '../task/task'
-import AddItem from '../addItem/addItem'
+import AddItemLink from '../addItemLink/addItemLink'
 
 class UpcomingTasks extends Component {
   handleClick = () => {
@@ -10,7 +10,7 @@ class UpcomingTasks extends Component {
     return (
       <section className='upcoming-tasks'>
         <h2>Upcoming Tasks</h2>
-        <AddItem itemName='Task' />
+        <AddItemLink itemName='Task' />
         <div className='tasks-container'>
           <Task title='Feed the dogs' points='20' />
           <Task title='Take out trash' points='20' />
