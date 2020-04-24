@@ -7,7 +7,9 @@ const AppContext = React.createContext({
   navOpen: '',
   error: null,
   addEvent: () => { },
-  addTask: () => { }
+  addTask: () => { },
+  toggleListOpen: () => { },
+  addToList: () => { },
 })
 
 export default AppContext

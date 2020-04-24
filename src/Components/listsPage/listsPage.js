@@ -3,62 +3,64 @@ import Header from '../header/header'
 import List from '../list/list'
 import TaskCheck from '../taskCheck/taskCheck'
 import AddItemLink from '../addItemLink/addItemLink'
+import AppContext from '../context/appContext'
 import './listsPage.css'
 
 class ListsPage extends Component {
-  static defaultProps = {
-    lists: [
-      {
-        name: 'Groceries',
-        items: [
-          {
-            itemName: 'Milk',
-            checked: false
-          },
-          {
-            itemName: 'Yogurt',
-            checked: false
-          },
-          {
-            itemName: 'Swiss Cheese',
-            checked: false
-          },
-          {
-            itemName: 'Coffee Creamer',
-            checked: true
-          }
-        ]
-      },
-      {
-        name: 'Home Improvement',
-        items: [
-          {
-            itemName: 'Garden Edging',
-            checked: false
-          },
-          {
-            itemName: 'Mulch',
-            checked: false
-          },
-          {
-            itemName: 'PVC Primer',
-            checked: true
-          },
-          {
-            itemName: 'Sprinkler controller',
-            checked: true
-          },
-        ]
-      }
-    ],
+  static contextType = AppContext
+  // static defaultProps = {
+  //   lists: [
+  //     {
+  //       name: 'Groceries',
+  //       items: [
+  //         {
+  //           itemName: 'Milk',
+  //           checked: false
+  //         },
+  //         {
+  //           itemName: 'Yogurt',
+  //           checked: false
+  //         },
+  //         {
+  //           itemName: 'Swiss Cheese',
+  //           checked: false
+  //         },
+  //         {
+  //           itemName: 'Coffee Creamer',
+  //           checked: true
+  //         }
+  //       ]
+  //     },
+  //     {
+  //       name: 'Home Improvement',
+  //       items: [
+  //         {
+  //           itemName: 'Garden Edging',
+  //           checked: false
+  //         },
+  //         {
+  //           itemName: 'Mulch',
+  //           checked: false
+  //         },
+  //         {
+  //           itemName: 'PVC Primer',
+  //           checked: true
+  //         },
+  //         {
+  //           itemName: 'Sprinkler controller',
+  //           checked: true
+  //         },
+  //       ]
+  //     }
+  //   ],
 
-  }
+  // }
 
   render() {
     return (
       <div className='Shopping Lists'>
         <Header pageTitle='Shopping Lists' />
-        {this.props.lists.map(list =>
+        {this.context.lists.map(list =>
           (
             <section className='list-container' key={list.name}>
               <h2>{list.name}</h2>

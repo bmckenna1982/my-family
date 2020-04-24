@@ -91,6 +91,47 @@ class App extends Component {
     this.props.history.goBack()
   }
 
+  addToList = (listName, newItem) => {
+    console.log('newItem', newItem)
+    console.log('this.state.lists', this.state.lists)
+    const updatedLists = this.state.lists.map(list => {
+      console.log('list', list)
+      console.log('listName', listName)
+      if (list.name === listName) {
+        list.items.push({
+          checked: false,
+          itemName: newItem
+        })
+      }
+      list.open = false
+      return list
+    })
+    console.log('updatedLists', updatedLists)
+    this.setState({
+      lists: [
+        ...updatedLists
+      ]
+    })
+  }
+
+  toggleListOpen = index => {
+    // index.preventDefault()
+    console.log('index', index)
+    const listStatus = this.state.lists.map((list, i) => {
+      console.log('list', list)
+      if (i === index) {
+        list.open = !list.open
+      } else {
+        list.open = false
+      }
+
+      return list
+    })
+    this.setState({
+      lists: listStatus
+    })
+  }
+
   render() {
     const contextValue = {
       events: this.state.events,
@@ -99,7 +140,9 @@ class App extends Component {
       date: this.state.date,
       navOpen: this.state.navOpen,
       addEvent: this.addEvent,
-      addTask: this.addTask
+      addTask: this.addTask,
+      toggleListOpen: this.toggleListOpen,
+      addToList: this.addToList
     }
 
     return (

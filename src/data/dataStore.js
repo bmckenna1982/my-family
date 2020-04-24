@@ -10,6 +10,7 @@ export default {
   "lists": [
     {
       name: 'Groceries',
+      open: false,
       items: [
         {
           itemName: 'Milk',
@@ -31,6 +32,7 @@ export default {
     },
     {
       name: 'Home Improvement',
+      open: false,
       items: [
         {
           itemName: 'Garden Edging',
