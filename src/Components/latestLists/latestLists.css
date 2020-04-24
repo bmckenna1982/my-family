@@ -1,8 +1,13 @@
 .latest-list-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   vertical-align: middle;
-  line-height: ;
+}
+
+.latest-list-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .icon-plus {
