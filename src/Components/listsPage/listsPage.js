@@ -60,12 +60,12 @@ class ListsPage extends Component {
     return (
       <div className='Shopping Lists'>
         <Header pageTitle='Shopping Lists' />
-        {this.context.lists.map(list =>
+        {this.context.lists.map((list, index) =>
           (
-            <section className='list-container' key={list.name}>
+            <section className='list-container' key={index}>
               <h2>{list.name}</h2>
               <AddItemLink itemName='Item' />
-              {list.items.map(item => (
+              {list.items.map((item, index) => (
                 <div className='list-item-container' key={item.itemName}>
                   <TaskCheck checked={item.checked} />
                   <div className='list-item'>{item.itemName}</div>

@@ -12,7 +12,7 @@ class AddItemLink extends Component {
       : ''
 
     return (
-      <Link to={this.props.location} className='add-item-link'>
+      <Link to={this.props.location || ''} className='add-item-link'>
         <div className='icon-plus'>
           <FontAwesomeIcon icon={faPlus} />
         </div>

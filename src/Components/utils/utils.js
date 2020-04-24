@@ -7,3 +7,11 @@ export function extractWeekday(date) {
 export function extractDayOfMonth(date) {
   return moment(date).format('D')
 }
+
+export function nowHour(date) {
+  return moment(date).add(1, 'hour').format('H:00')
+}
+
+export function endHour(date) {
+  return moment(date).add(2, 'hour').format('H:00')
+}

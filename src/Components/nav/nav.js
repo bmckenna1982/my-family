@@ -32,13 +32,6 @@ class Nav extends Component {
             <NavLink to='/log-in'>Log in</NavLink>
           </li>
         </ul>
-        <div className='hamburger' onClick={changeNav} id='hamburger'>
-          <div className='nav-bar bar1'></div>
-          <div className='nav-bar bar2'></div>
-          <div className='nav-bar bar3'></div>
-        </div>
-        <div className='app-name'>MyFamily</div>
-
       </nav>
     )
   }

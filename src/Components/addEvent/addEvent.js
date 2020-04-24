@@ -3,6 +3,7 @@ import Header from '../header/header'
 import DatePicker from 'react-date-picker'
 import TimePicker from 'react-time-picker'
 import AppContext from '../context/appContext'
+import { nowHour, endHour } from '../utils/utils'
 import './addEvent.css'
 
 class AddEvent extends Component {
@@ -10,8 +11,8 @@ class AddEvent extends Component {
     super(props)
     this.state = {
       date: new Date(),
-      startTime: '12:00',
-      endTime: '13:00',
+      startTime: nowHour(new Date()),
+      endTime: endHour(new Date()),
       title: '',
     }
 

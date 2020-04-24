@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom'
 import moment from 'moment'
+import TopBar from '../topBar/topBar'
+import Hamburger from '../hamburger/hamburger';
 import Nav from '../nav/nav'
 import HomePage from '../homePage/homePage'
 import Login from '../login/login'
@@ -15,6 +17,7 @@ import AppContext from '../context/appContext'
 import { extractWeekday, extractDayOfMonth } from '../utils/utils'
 import dataStore from '../../data/dataStore'
 import './App.css';
+
 
 class App extends Component {
   constructor(props) {
@@ -148,6 +151,8 @@ class App extends Component {
     return (
       <AppContext.Provider value={contextValue}>
         <div className="App">
+          <TopBar />
+          <Hamburger />
           <Nav />
           <main role='main'>
             <Switch>

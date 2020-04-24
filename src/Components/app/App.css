@@ -24,7 +24,7 @@ main {
   /* flex: 1; */
   min-height: calc(100vh - 45px);
 }
-nav,
+
 footer {
   padding: 1% 10px;
   background-color: #aaa;
