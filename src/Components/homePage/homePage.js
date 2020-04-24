@@ -7,6 +7,7 @@ import LatestLists from '../latestLists/latestLists'
 
 class HomePage extends Component {
   render() {
+    // console.log('this.context.events', this.context.events)
     return (
       <div>
         <Header pageTitle='Daily Overview' />

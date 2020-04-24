@@ -1,22 +1,22 @@
 import React, { Component } from "react"
 import Task from '../task/task'
 import AddItemLink from '../addItemLink/addItemLink'
+import AppContext from '../context/appContext'
 
 class UpcomingTasks extends Component {
-  handleClick = () => {
-    console.log('clicked add item')
-  }
+
+  static contextType = AppContext
+
   render() {
     return (
       <section className='upcoming-tasks'>
         <h2>Upcoming Tasks</h2>
-        <AddItemLink itemName='Task' />
+        <AddItemLink location='/add-task' itemName='Task' />
         <div className='tasks-container'>
-          <Task title='Feed the dogs' points='20' />
-          <Task title='Take out trash' points='20' />
-          <Task title='Put away laundry' points='20' />
-          <Task title='Bathe Dogs' points='100' />
-          <Task title='Mow the lawn' points='50' />
+          {this.context.tasks.slice(0, 5).map(task => (
+            <Task key={task.title} title={task.title} points={task.points} checked='task.checked' />
+          ))
+          }
         </div>
         <div className='tasks'></div>
         <div className='tasks'></div>

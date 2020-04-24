@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from '../header/header'
 import DatePicker from 'react-date-picker'
 import TimePicker from 'react-time-picker'
+import AppContext from '../context/appContext'
 import './addEvent.css'
 
 class AddEvent extends Component {
@@ -10,22 +11,34 @@ class AddEvent extends Component {
     this.state = {
       date: new Date(),
       startTime: '12:00',
-      endTime: '1:00'
-
+      endTime: '13:00',
+      title: '',
     }
+
   }
 
+  static contextType = AppContext
+
+  handleTitleChange = event => {
+    event.preventDefault()
+    this.setState({ title: event.target.value })
+  }
   handleDateChange = date => this.setState({ date })
   handleStartTimeChange = startTime => this.setState({ startTime })
   handleEndTimeChange = endTime => this.setState({ endTime })
+  addEvent = (event) => {
+    event.preventDefault()
+    let e = this.state
+    this.context.addEvent(e)
+  }
 
   render() {
     return (
       <section className="addEvent">
         <Header pageTitle='Add Event' />
-        <form className='addEvent-form' onSubmit={this.context.AddEvent}>
+        <form className='addEvent-form' onSubmit={this.addEvent}>
           <div>
-            <input type="text" name='title' id='title' placeholder='Title' />
+            <input type="text" name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
           </div>
           <div>
             {/* <input type="event_date" name='event_date' id='event_date' placeholder='Date' /> */}
@@ -39,7 +52,7 @@ class AddEvent extends Component {
             <TimePicker onChange={this.handleEndTimeChange} value={this.state.endTime} />
             {/* <input type="event-end-time" name='event-end-time' id='event-end-time' placeholder='End time of event' /> */}
           </div>
-          <button type='submit'>Add Event</button>
+          <button type='submit' >Add Event</button>
 
         </form>
       </section>

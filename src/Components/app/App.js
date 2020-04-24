@@ -10,7 +10,10 @@ import TasksPage from '../tasksPage/tasksPage'
 import ListPage from '../listsPage/listsPage'
 import FamilyPage from '../familyPage/familyPage'
 import AddEvent from '../addEvent/addEvent'
+import AddTask from '../addTask/addTask'
 import AppContext from '../context/appContext'
+import { extractWeekday, extractDayOfMonth } from '../utils/utils'
+import dataStore from '../../data/dataStore'
 import './App.css';
 
 class App extends Component {
@@ -18,12 +21,33 @@ class App extends Component {
     super(props)
 
     this.state = {
-      events: [],
-      tasks: [],
-      lists: [],
+      events: [
+        {
+          title: 'Event Title',
+          date: 'Wed 14',
+          startTime: '3pm',
+          endTime: '4:30pm',
+        }
+      ],
+      tasks: [
+        {
+          title: 'task title',
+          points: '20'
+        }
+      ],
+      lists: [
+        {
+          title: 'list title',
+          items: []
+        }
+      ],
       date: moment([]),
       navOpen: false
     }
+  }
+
+  componentDidMount() {
+    setTimeout(() => this.setState(dataStore), 600)
   }
 
   static contextType = AppContext
@@ -33,12 +57,38 @@ class App extends Component {
   }
 
   addEvent = (event) => {
-    this.state.push({
-      title: event.title,
-      date: event.date,
-      startTime: event.startTime,
-      endTime: event.endTime,
+    // event.preventDefault()
+    const weekday = extractWeekday(event.date)
+    const dayOfMonth = extractDayOfMonth(event.date)
+    console.log('day', dayOfMonth)
+    console.log('event.target', event)
+    console.log('...this.state.events', ...this.state.events)
+    this.setState({
+      events: [
+        ...this.state.events,
+        {
+          title: event.title,
+          date: `${weekday} ${dayOfMonth}`,
+          startTime: event.startTime,
+          endTime: event.endTime
+        }
+      ]
     })
+    this.props.history.push('/')
+  }
+
+  addTask = task => {
+    console.log('task', task)
+    this.setState({
+      tasks: [
+        ...this.state.tasks,
+        {
+          title: task.title,
+          points: task.points
+        }
+      ]
+    })
+    this.props.history.goBack()
   }
 
   render() {
@@ -48,7 +98,8 @@ class App extends Component {
       lists: this.state.lists,
       date: this.state.date,
       navOpen: this.state.navOpen,
-      addEvent: this.addEvent
+      addEvent: this.addEvent,
+      addTask: this.addTask
     }
 
     return (
@@ -65,6 +116,7 @@ class App extends Component {
               <Route exact path='/lists' component={ListPage} />
               <Route exact path='/family' component={FamilyPage} />
               <Route exact path='/add-event' component={AddEvent} />
+              <Route exact path='/add-task' component={AddTask} />
             </Switch>
           </main>
           <footer role='contentinfo'>Footer</footer>

@@ -1,22 +1,25 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
 import Task from '../task/task'
+import AppContext from '../context/appContext'
 import './tasksPage.css'
+import PointsBar from '../pointsBar/pointsBar'
 
 class TasksPage extends Component {
+  static contextType = AppContext
+
   render() {
     return (
       <div className='tasks-page'>
         <Header pageTitle='Tasks' />
+        <PointsBar />
         <div className='tasks-list'>
-          <Task title='Feed the dogs' points='20' />
-          <Task title='Take out trash' points='20' />
-          <Task title='Put away laundry' points='20' />
-          <Task title='Bathe Dogs' points='100' />
-          <Task title='Mow the lawn' points='50' />
-          <Task title='Vacumn living room' points='30' />
-          <Task title='Vacumn playroom' points='30' />
-          <Task title='Vacumn bedroom' points='30' />
+          <div className='tasks-container'>
+            {this.context.tasks.map(task => (
+              <Task key={task.title} title={task.title} points={task.points} checked='task.checked' />
+            ))
+            }
+          </div>
         </div>
       </div>
     )
