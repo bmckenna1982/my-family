@@ -33,12 +33,11 @@ nav {
 }
 
 .nav-list.close .nav-item {
-  display: none;
-}
-.fade-in-show {
-  opacity: 1;
+  /* display: none; */
+  opacity: 0;
 }
 
-.fade-in-hide {
-    opacity: 0;
+.nav-item {
+  opacity: 1;
+  transition: 0.8s ease-in-out;
 }
