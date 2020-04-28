@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import AddItemLink from '../addItemLink/addItemLink'
 import AppContext from '../context/appContext'
+import ListInput from '../listInput/listInput'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -60,12 +61,13 @@ class LatestLists extends Component {
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </div>
-            <div className='list-input'>
+            <ListInput listName={list.name} />
+            {/* <div className='list-input'>
               <input type='text' name='list-input-title' id='list-input-title' placeholder='List item name' onChange={this.handleChange} value={this.state.newItem} />
               <div className='add-to-list' onClick={() => this.context.addToList(list.name, this.state.newItem)} >
                 <FontAwesomeIcon icon={faPlus} />
               </div>
-            </div>
+            </div> */}
           </div>
         ))}
       </section>
