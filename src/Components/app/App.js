@@ -71,7 +71,7 @@ class App extends Component {
         ...this.state.events,
         {
           title: event.title,
-          date: `${weekday} ${dayOfMonth}`,
+          date: event.date,
           startTime: event.startTime,
           endTime: event.endTime
         }
