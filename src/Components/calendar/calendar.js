@@ -3,6 +3,7 @@ import CalendarWeek from '../calendarWeek/calendarWeek'
 import CalendarMonth from '../calendarMonth/calendarMonth'
 import { extractMonth } from '../utils/utils'
 import AppContext from '../context/appContext'
+import './calendar.css'
 
 
 class Calendar extends Component {

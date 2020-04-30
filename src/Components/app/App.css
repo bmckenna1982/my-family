@@ -52,7 +52,7 @@ section {
   /* background-color: #bbb; */
 }
 
-section:nth-child(odd) {
+.home-page section:nth-child(odd) {
   background-color: #eee;
 }
 
@@ -93,33 +93,7 @@ ul {
 legend {
   width: 100%;
 }
-.calendar {
-  background-color: #ddd;
-}
 
-.calendar-month h1 {
-  margin-bottom: 0;
-}
-.calendar-day-container {
-  display: flex;
-  padding: 5px 10px;
-  /* background-color: #ddd; */
-  text-align: left;    
-}
-
-.calendar-day-container:nth-child(even) {
-  background-color: #bbb;    
-}
-
-.calendar-date-container {
-  flex: 1;
-}
-
-.calendar-event-container {
-  flex: 2;
-  font-size: 0.7em;
-  margin: auto;
-}
 
 .tab-selection {
   display: flex;

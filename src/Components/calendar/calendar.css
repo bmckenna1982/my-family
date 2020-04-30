@@ -9,3 +9,28 @@
 .calendar-month {
   padding-bottom: 20px;
 }
+
+.calendar-month h1 {
+  margin-bottom: 0;
+}
+.calendar-day-container {
+  display: flex;
+  padding: 5px 10px;
+  background-color: #eee;
+  text-align: left; 
+  border-bottom: 1px solid #111;
+}
+
+.calendar-day-container:nth-child(even) {
+  background-color: #bbb;    
+}
+
+.calendar-date-container {
+  flex: 1;
+}
+
+.calendar-event-container {
+  flex: 2;
+  font-size: 0.7em;
+  margin: auto;
+}

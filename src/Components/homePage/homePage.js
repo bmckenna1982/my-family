@@ -9,7 +9,7 @@ class HomePage extends Component {
   render() {
     // console.log('this.context.events', this.context.events)
     return (
-      <div>
+      <div className='home-page'>
         <Header pageTitle='Daily Overview' />
         <PointsBar />
         <UpcomingEvents />
