@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Event from '../event/event'
 import AddItemLink from '../addItemLink/addItemLink'
 import AppContext from '../context/appContext'
+import { eventDate } from '../utils/utils'
 
 class UpcomingEvents extends Component {
   static contextType = AppContext
@@ -18,10 +19,12 @@ class UpcomingEvents extends Component {
         {/* <div className='calendar-link'>
           <a href='/calendar'>View Calendar</a>
         </div> */}
-        {this.context.events.map((event, index) => (
+        {this.context.events.map((event, index) => {
           //test date to show today if its today
-          <Event key={index} day={event.date} time={event.startTime} title={event.title} />
-        ))
+          console.log('event', event)
+
+          return <Event key={index} day={eventDate(event.date)} time={event.startTime} title={event.title} />
+        })
         }
         {/* <Event day='Wed 14' time='3pm' title='Baseball practice' /> */}
 

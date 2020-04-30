@@ -12,7 +12,7 @@ class AddListItem extends Component {
           <div>
             <input type="text" name='title' id='title' placeholder='List item' onChange={this.handleTitleChange} value={this.state.title} />
           </div>
-          <button type='submit' >Add Event</button>
+          <button className='bttn' type='submit' >Add Event</button>
         </form>
       </section >
     )

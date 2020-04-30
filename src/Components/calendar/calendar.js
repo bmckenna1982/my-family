@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import CalendarWeek from '../calendarWeek/calendarWeek'
 import CalendarMonth from '../calendarMonth/calendarMonth'
+import { extractMonth } from '../utils/utils'
+import AppContext from '../context/appContext'
 
 
 class Calendar extends Component {
@@ -8,17 +10,22 @@ class Calendar extends Component {
     super(props)
 
     this.state = {
-      monthView: false
+      showMonth: false,
+
     }
   }
 
-  handleClick = (e) => {
-    e.preventDefault()
-    console.log('click')
-    document.querySelector('#month').classList.toggle('calendar-close')
-    document.querySelector('#week').classList.toggle('calendar-close')
+  static contextType = AppContext
+
+  showMonth(showMonth) {
+    console.log('showMonth', showMonth)
+    this.setState({ showMonth })
   }
   render() {
+    const calendarView = this.state.showMonth
+      ? <CalendarMonth />
+      : <CalendarWeek />
+
     return (
       <div className='calendar'>
         <header className='calendar-month' role='banner'>
@@ -28,17 +35,11 @@ class Calendar extends Component {
         <div className='tab-selection'>
           {/* instead of tab make it two divs one says view week one says view month
           each sets the close to the other view */}
-          <div className='week-tab' onClick={this.handleClick}>Week</div>
-          <div className='month-tab' onClick={this.handleClick}>Month</div>
+          <button className={'bttn week-tab ' + (this.state.showMonth ? '' : 'active')} id='week-tab' onClick={() => this.showMonth(false)}>Week</button>
+          <button className={'bttn month-tab ' + (this.state.showMonth ? 'active' : '')} id='month-tab' onClick={() => this.showMonth(true)}>Month</button>
         </div>
         <div className='calendar-wrapper'>
-          {/* if week view show the today and the following 6 days */}
-          <CalendarWeek />
-
-          {/* if month view show the current month */}
-          <CalendarMonth />
-          {/* <Calendar-Day /> */}
-
+          {calendarView}
         </div>
       </div>
     )

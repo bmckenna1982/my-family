@@ -27,7 +27,7 @@ class App extends Component {
       events: [
         {
           title: 'Event Title',
-          date: 'Wed 14',
+          date: new Date(),
           startTime: '3pm',
           endTime: '4:30pm',
         }
@@ -100,7 +100,7 @@ class App extends Component {
     const updatedLists = this.state.lists.map(list => {
       console.log('list', list)
       console.log('listName', listName)
-      if (list.name === listName) {
+      if (list.name === listName && newItem !== '') {
         list.items.push({
           checked: false,
           itemName: newItem

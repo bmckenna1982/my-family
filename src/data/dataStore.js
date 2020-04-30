@@ -2,7 +2,7 @@ export default {
   "events": [
     {
       title: 'Event Title',
-      date: 'Wed 14',
+      date: new Date(),
       startTime: '3pm',
       endTime: '4:30pm',
     },

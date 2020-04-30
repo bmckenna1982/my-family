@@ -46,7 +46,7 @@ class Register extends Component {
             {/* <label for="teamcode">Family Code</label> */}
             <input type="family-code" name='family-code' id='family-code' placeholder='Family Code' />
           </div>
-          <button type='submit'>Sign Up</button>
+          <button className='bttn' type='submit'>Sign Up</button>
         </form>
       </section>
     )

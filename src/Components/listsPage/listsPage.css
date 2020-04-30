@@ -1,3 +1,14 @@
 .list-item-container {
   display: flex;
 }
+
+.list-container.open .icon-plus {
+  opacity: 0;
+  max-height: 0;
+  overflow-y: hidden;
+}
+
+.list-container.open .list-input {
+  opacity: 1;
+  max-height: 100px;
+}

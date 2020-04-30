@@ -53,7 +53,7 @@ class AddEvent extends Component {
             <TimePicker onChange={this.handleEndTimeChange} value={this.state.endTime} />
             {/* <input type="event-end-time" name='event-end-time' id='event-end-time' placeholder='End time of event' /> */}
           </div>
-          <button type='submit' >Add Event</button>
+          <button className='bttn' type='submit' >Add Event</button>
 
         </form>
       </section>

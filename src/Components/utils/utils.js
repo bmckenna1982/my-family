@@ -1,17 +1,47 @@
 import moment from 'moment'
 
-export function extractWeekday(date) {
+const extractWeekday = (date) => {
   return moment(date).format('ddd')
 }
 
-export function extractDayOfMonth(date) {
+const extractDayOfMonth = (date) => {
   return moment(date).format('D')
 }
 
-export function nowHour(date) {
+const nowHour = (date) => {
   return moment(date).add(1, 'hour').format('H:00')
 }
 
-export function endHour(date) {
+const endHour = (date) => {
   return moment(date).add(2, 'hour').format('H:00')
+}
+
+const eventDate = (date) => {
+  if (moment(date).format('ll') === moment([]).format('ll')) {
+    return 'Today'
+  }
+  return moment(date).format('ddd D')
+}
+
+const getCurrentDay = () => {
+  return moment([]).format('D');
+};
+
+const extractMonth = (date) => {
+  return moment(date).format('MMMM')
+}
+
+const formatForCompare = date => {
+  return moment(date).format('LL')
+}
+
+export {
+  extractWeekday,
+  extractDayOfMonth,
+  nowHour,
+  endHour,
+  eventDate,
+  getCurrentDay,
+  extractMonth,
+  formatForCompare,
 }

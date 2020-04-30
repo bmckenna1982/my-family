@@ -6,7 +6,9 @@ import './calendarMonth.css'
 
 class CalendarMonth extends Component {
   render() {
+    console.log('month')
     const weekdayShort = moment.weekdaysShort()
+    let dateObject = moment([]);
 
     let weekdayShortName = weekdayShort.map(day => {
       return (
@@ -17,7 +19,6 @@ class CalendarMonth extends Component {
     })
 
     const firstDayOfMonth = () => {
-      let dateObject = moment([]);
       let firstDay = moment(dateObject)
         .startOf("month")
         .format("d");
@@ -35,22 +36,27 @@ class CalendarMonth extends Component {
     let startBlanks = []
     for (let i = 0; i < firstDayOfMonth(); i++) {
       startBlanks.push(
-        <div key={`start-blank${i}`} className='calendar-day empty'>{''}</div>
+        <div key={`start-blank${i}`} className='calendar-month-day empty'>{''}</div>
       )
     }
 
     let endBlanks = []
     for (let i = 0; i < 7 - lastDayOfMonth(); i++) {
       endBlanks.push(
-        <div key={`end-blank${i}`} className='calendar-day empty'>{''}</div>
+        <div key={`end-blank${i}`} className='calendar-month-day empty'>{''}</div>
       )
     }
+
+    const getCurrentDay = () => {
+      return moment(dateObject).format("D");
+    };
 
     const currentMonth = moment([]).format('MMMM')
     const daysInMonth = []
     for (let d = 1; d < moment().daysInMonth(currentMonth); d++) {
+      let currentDay = d == getCurrentDay() ? "today" : "";
       daysInMonth.push(
-        <div key={d} className='calendar-day'>
+        <div key={d} className={`calendar-month-day ${currentDay}`}>
           {d}
         </div>
       )
@@ -80,6 +86,7 @@ class CalendarMonth extends Component {
     })
 
 
+    console.log('weekdayShortName', weekdayShortName)
     return (
       <div className='calendar-page-month calendar-close' id='month' >
         {/* <Header pageTitle='Calendar' /> */}

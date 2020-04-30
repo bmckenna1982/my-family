@@ -45,7 +45,7 @@ class AddTask extends Component {
           <div>
             <input type="text" name='points' id='points' placeholder='Point value' onChange={this.handlePointsChange} value={this.state.points} />
           </div>
-          <button type='submit' >Add Task</button>
+          <button className='bttn' type='submit' >Add Task</button>
         </form>
       </section>
     )

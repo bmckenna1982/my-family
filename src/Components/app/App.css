@@ -27,8 +27,9 @@ main {
 
 footer {
   padding: 1% 10px;
-  background-color: #aaa;
+  background-color: rgba(8,88,112,1);
   height: 45px;
+  color: #eee;
 }
 
 header {
@@ -48,11 +49,11 @@ header h1 {
 section {
   min-height: 200px;
   padding: 30px 0;
-  background-color: #bbb;
+  /* background-color: #bbb; */
 }
 
-section:nth-child(even) {
-  background-color: #ddd;
+section:nth-child(odd) {
+  background-color: #eee;
 }
 
 p {
@@ -130,13 +131,6 @@ legend {
   padding: 0 5px;
 }
 
-.week-tab {
-  border: 1px solid #111;
-  border-bottom: px solid #fff;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
 .shopping-list-item {
   display: flex;  
 }
@@ -184,4 +178,39 @@ legend {
 .task-check input{
   width: 30px;
   height: 30px
+}
+
+.bttn {
+  text-decoration:none;
+  background: rgb(5,52,66);
+  cursor:pointer;
+  background: linear-gradient(0deg, rgba(5,52,66,1) 0%, rgba(8,88,112,1) 25%, rgba(11,129,164,1) 100%);
+  border: none;  
+  border-radius: 5px;
+  color: #eee;
+  padding: 5px;
+  text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;  
+}
+
+.week-tab, .month-tab {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.bttn.active {
+	position:relative;
+  top:1px;
+  border: none;
+  /* font-size: .9em;   */
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+     -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+          box-shadow: inset 0px 0px 5px #c1c1c1;
+   outline: none;
+}
+
+.bttn:focus {
+  position:relative;
+  top:1px;
+  border: none;
 }

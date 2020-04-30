@@ -8,5 +8,6 @@
   justify-content: flex-end;  
   line-height: 35px;
   vertical-align: middle;
-  background-color: #aaa;
+  background-color: rgba(8,88,112,1);
+  color: #eee;
 }

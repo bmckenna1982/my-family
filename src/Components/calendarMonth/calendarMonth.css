@@ -30,8 +30,16 @@
   display: flex;
 }
 
-.week-day, .calendar-day {
+.week-day, .calendar-month-day {
   flex: 1;
+}
+
+.calendar-month-day {  
+  border-radius: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .calendar-row {
@@ -40,12 +48,15 @@
   justify-content: space-between;
   align-items: center;
   position: relative;
-}
-
-.calendar-close {
-  display: none;
+  padding: 5px 0;
 }
 
 .week {
   display: flex;
+}
+
+.today {
+  font-weight: 600;
+  background-color: aqua;
+  color: #fff;
 }
