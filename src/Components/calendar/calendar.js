@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import CalendarWeek from '../calendarWeek/calendarWeek'
 import CalendarMonth from '../calendarMonth/calendarMonth'
+import AddItemLink from '../addItemLink/addItemLink'
 import { extractMonth } from '../utils/utils'
 import AppContext from '../context/appContext'
 import './calendar.css'
@@ -31,7 +32,7 @@ class Calendar extends Component {
       <div className='calendar'>
         <header className='calendar-month' role='banner'>
           <h1>April</h1>
-          <div className='add-item'>+ Add Item </div>
+          <AddItemLink location='/add-event' itemName='Event' />
         </header>
         <div className='tab-selection'>
           {/* instead of tab make it two divs one says view week one says view month
