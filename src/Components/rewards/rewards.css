@@ -1,0 +1,17 @@
+.reward-container{
+  display: flex;
+  justify-content: space-between;  
+  padding: 10px;
+  border-left: 5px solid rgba(10,129,209, .5); 
+}
+
+.rewards-list > .active {
+  border-left: 5px solid rgba(10,129,209, 1); 
+}
+
+.claimed-container  {
+  display: flex;
+  justify-content: space-between;  
+  padding: 10px;
+  border-left: 5px solid rgba(10,129,209, 1); 
+}

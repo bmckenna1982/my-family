@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom'
 import moment from 'moment'
+
 import TopBar from '../topBar/topBar'
 import Hamburger from '../hamburger/hamburger';
 import Nav from '../nav/nav'
@@ -13,6 +14,8 @@ import ListPage from '../listsPage/listsPage'
 import FamilyPage from '../familyPage/familyPage'
 import AddEvent from '../addEvent/addEvent'
 import AddTask from '../addTask/addTask'
+import Rewards from '../rewards/rewards'
+
 import AppContext from '../context/appContext'
 import { extractWeekday, extractDayOfMonth } from '../utils/utils'
 import dataStore from '../../data/dataStore'
@@ -163,6 +166,7 @@ class App extends Component {
               <Route exact path='/tasks' component={TasksPage} />
               <Route exact path='/lists' component={ListPage} />
               <Route exact path='/family' component={FamilyPage} />
+              <Route exact path='/rewards' component={Rewards} />
               <Route exact path='/add-event' component={AddEvent} />
               <Route exact path='/add-task' component={AddTask} />
             </Switch>

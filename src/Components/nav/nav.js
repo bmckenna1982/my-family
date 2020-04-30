@@ -44,6 +44,7 @@ class Nav extends Component {
         <NavLink onClick={changeNav} to='/lists'>Lists</NavLink>
 
         <NavLink onClick={changeNav} to='/family'>Family</NavLink>
+        <NavLink onClick={changeNav} to='/rewards'>Rewards</NavLink>
 
         <NavLink onClick={changeNav} to='/log-in'>Log in</NavLink>
 
