@@ -33,7 +33,7 @@ class CalendarWeek extends Component {
                 <div className='calendar-date'>{day.dayOfMonth}</div>
               </div>
               <div className='calendar-event-container'>
-                <Event title='Baseball practice' time='3pm' />
+                <Event title='Baseball practice' startTime='3pm' />
               </div>
             </div>
           </div>

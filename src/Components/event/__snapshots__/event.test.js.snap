@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Event component renders the UI as expected with day 1`] = `
+<div
+  className="event-container"
+>
+  <div
+    className="event-day"
+  >
+    Today
+     
+  </div>
+  <div
+    className="event-time"
+  >
+    3pm
+  </div>
+  <div
+    className="event-title"
+  >
+    Baseball practice
+  </div>
+</div>
+`;
+
+exports[`Event component renders the UI as expected without day 1`] = `
+<div
+  className="event-container"
+>
+  <div
+    className="event-day"
+  >
+     
+  </div>
+  <div
+    className="event-time"
+  >
+    3pm
+  </div>
+  <div
+    className="event-title"
+  >
+    Baseball practice
+  </div>
+</div>
+`;

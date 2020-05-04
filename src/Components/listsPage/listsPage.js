@@ -15,10 +15,11 @@ class ListsPage extends Component {
 
   render() {
     console.log('rendering')
+    const currentLists = this.context.lists
     return (
       <div className='Shopping Lists'>
         <Header pageTitle='Shopping Lists' />
-        {this.context.lists.map((list, index) =>
+        {this.context.lists && this.context.lists.map((list, index) =>
           (
             <section className={'list-container ' + (list.open ? 'open' : '')} key={index}>
               <h2>{list.name}</h2>
