@@ -3,8 +3,8 @@ export default {
     {
       title: 'Event Title',
       date: new Date(),
-      startTime: '3pm',
-      endTime: '4:30pm',
+      startTime: '15:00',
+      endTime: '16:30',
     },
   ],
   "lists": [
