@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
+import AddItemLink from '../addItemLink/addItemLink'
 import './rewards.css'
 
 class Rewards extends Component {
@@ -19,6 +20,7 @@ class Rewards extends Component {
     return (
       <div className='rewards'>
         <Header pageTitle='Rewards' />
+        <AddItemLink itemName='Reward' location='add-reward'/>
         <div className='tab-selection'>
           <button className={'bttn rewards-tab ' + (this.state.showClaimed ? '' : 'active')} id='rewards-tab' onClick={() => this.showClaimed(false)}>Rewards</button>
           <button className={'bttn claimed-tab ' + (this.state.showClaimed ? 'active' : '')} id='claimed-tab' onClick={() => this.showClaimed(true)}>Claimed</button>

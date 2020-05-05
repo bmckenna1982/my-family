@@ -10,6 +10,7 @@ const AppContext = React.createContext({
   addTask: () => { },
   toggleListOpen: () => { },
   addToList: () => { },
+  addReward: () => { }
 })
 
 export default AppContext

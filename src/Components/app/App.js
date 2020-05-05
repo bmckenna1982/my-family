@@ -3,7 +3,7 @@ import { Route, withRouter, Switch } from 'react-router-dom'
 import moment from 'moment'
 
 import TopBar from '../topBar/topBar'
-import Hamburger from '../hamburger/hamburger';
+import Hamburger from '../hamburger/hamburger'
 import Nav from '../nav/nav'
 import HomePage from '../homePage/homePage'
 import Login from '../login/login'
@@ -15,11 +15,13 @@ import FamilyPage from '../familyPage/familyPage'
 import AddEvent from '../addEvent/addEvent'
 import AddTask from '../addTask/addTask'
 import Rewards from '../rewards/rewards'
+import AddReward from '../addReward/addReward'
 
 import AppContext from '../context/appContext'
 import { extractWeekday, extractDayOfMonth } from '../utils/utils'
 import dataStore from '../../data/dataStore'
 import './App.css';
+
 
 
 class App extends Component {
@@ -39,6 +41,12 @@ class App extends Component {
         {
           title: 'task title',
           points: '20'
+        }
+      ],
+      rewards: [
+        {
+          title: 'reward title',
+          points: '200'
         }
       ],
       lists: [
@@ -98,6 +106,20 @@ class App extends Component {
     this.props.history.goBack()
   }
 
+  addReward = reward => {
+    console.log('reward', reward)
+    this.setState({
+      rewards: [
+        ...this.state.rewards,
+        {
+          title: reward.title,
+          points: reward.points
+        }
+      ]
+    })
+    this.props.history.goBack()
+  }
+
   addToList = (listName, newItem) => {
     console.log('newItem', newItem)
     console.log('this.state.lists', this.state.lists)
@@ -149,7 +171,8 @@ class App extends Component {
       addEvent: this.addEvent,
       addTask: this.addTask,
       toggleListOpen: this.toggleListOpen,
-      addToList: this.addToList
+      addToList: this.addToList,
+      addReward: this.addReward,
     }
 
     return (
@@ -170,6 +193,7 @@ class App extends Component {
               <Route exact path='/rewards' component={Rewards} />
               <Route exact path='/add-event' component={AddEvent} />
               <Route exact path='/add-task' component={AddTask} />
+              <Route exact path='/add-reward' component={AddReward} />
             </Switch>
           </main>
           <footer role='contentinfo'>Footer</footer>
