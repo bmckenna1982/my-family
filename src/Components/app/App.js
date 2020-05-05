@@ -57,7 +57,9 @@ class App extends Component {
         }
       ],
       date: moment([]),
-      navOpen: false
+      navOpen: false,
+      showModal: false,
+      selectedTaskIndex: null,
     }
   }
 
@@ -161,6 +163,14 @@ class App extends Component {
     })
   }
 
+  openEdit = (click) => {
+    console.log('clicked edit', click.props)
+    this.setState({
+      showModal: true,
+      selectedTaskIndex: click.props.index
+    })
+  }
+
   render() {
     const contextValue = {
       events: this.state.events,
@@ -168,11 +178,14 @@ class App extends Component {
       lists: this.state.lists,
       date: this.state.date,
       navOpen: this.state.navOpen,
+      showModal: this.state.showModal,
+      selectedTaskIndex: this.state.selectedTaskIndex,
       addEvent: this.addEvent,
       addTask: this.addTask,
       toggleListOpen: this.toggleListOpen,
       addToList: this.addToList,
       addReward: this.addReward,
+      openEdit: this.openEdit
     }
 
     return (
