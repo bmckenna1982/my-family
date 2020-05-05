@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import AddItemLink from '../addItemLink/addItemLink'
 import AppContext from '../context/appContext'
 import ListInput from '../listInput/listInput'
+import List from '../list/list'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -47,27 +48,39 @@ class LatestLists extends Component {
     })
   }
 
+  isOpen = list => {
+    const openList = list.open
+      ? <div>
+          <ListInput listName={list.name} />
+          <List list={list} />
+        </div>
+      : ''
+    return openList
+  }
+
   render() {
     console.log('this.context', this.context.lists)
+    const listRender = this.context.lists.map((list, index) => {
+      let openList = list.open
+        ? <div>
+            <ListInput listName={list.name} />
+            <List list={list} />
+          </div>
+        : ''
+    })
+
     return (
       <section className='active-list'>
         <h2>Active Lists</h2>
         {this.context.lists.map((list, index) => (
           <div key={index} className={'latest-list-container ' + (list.open ? 'open' : '')}>
             <div className='latest-list-wrapper'>
-              <div className='grocery-list'>{list.name}</div>
-              {/* <AddItemLink location='/add-list-item' /> */}
+              <div className='list-name'>{list.name}</div>
               <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </div>
-            <ListInput listName={list.name} />
-            {/* <div className='list-input'>
-              <input type='text' name='list-input-title' id='list-input-title' placeholder='List item name' onChange={this.handleChange} value={this.state.newItem} />
-              <div className='add-to-list' onClick={() => this.context.addToList(list.name, this.state.newItem)} >
-                <FontAwesomeIcon icon={faPlus} />
-              </div>
-            </div> */}
+            {this.isOpen(list)}
           </div>
         ))}
       </section>
