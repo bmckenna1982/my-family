@@ -6,10 +6,14 @@ const AppContext = React.createContext({
   date: null,
   navOpen: '',
   error: null,
+  showModal: false,
+  selectedTaskIndex: null,
   addEvent: () => { },
   addTask: () => { },
   toggleListOpen: () => { },
   addToList: () => { },
+  addReward: () => { },
+  openEdit: () => { }
 })
 
 export default AppContext

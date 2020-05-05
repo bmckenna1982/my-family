@@ -3,8 +3,11 @@ import Header from '../header/header'
 import Task from '../task/task'
 import AppContext from '../context/appContext'
 import AddItemLink from '../addItemLink/addItemLink'
-import './tasksPage.css'
 import PointsBar from '../pointsBar/pointsBar'
+import EditTaskModal from '../editTaskModal/editTaskModal'
+
+import './tasksPage.css'
+
 
 class TasksPage extends Component {
   static contextType = AppContext
@@ -17,12 +20,15 @@ class TasksPage extends Component {
         <PointsBar />
         <div className='tasks-list'>
           <div className='tasks-container'>
-            {this.context.tasks.map(task => (
-              <Task key={task.title} title={task.title} points={task.points} checked='task.checked' />
+            {this.context.tasks.map((task, index) => (
+              <Task key={task.title} title={task.title} points={task.points} checked='task.checked' index={index} />
             ))
             }
+
           </div>
         </div>
+        {console.log('this.context', this.context)}
+        <EditTaskModal show={this.context.showModal} taskIndex={this.context.selectedTaskIndex} />
       </div>
     )
   }

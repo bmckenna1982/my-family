@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Header from '../header/header'
 import AppContext from '../context/appContext'
 
 class AddReward extends Component {
@@ -36,7 +37,7 @@ class AddReward extends Component {
   render() {
     return (
       <div className="addReward">
-        {/* <Header pageTitle='Add Reward' /> */}
+        <Header pageTitle='Add Reward' />
         <form className='addReward-form' onSubmit={this.addReward}>
           <div>
             <input type="text" name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
