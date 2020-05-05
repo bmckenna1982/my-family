@@ -35,10 +35,10 @@
   cursor: pointer;  
 }
 
-.latest-list-container.open .list-input {
+/* .latest-list-container.open .list-input {
   max-height: 1000px;
   opacity: 1;
-}
+} */
 
 .latest-list-container.open .latest-list-wrapper .icon-plus {
   max-height: 0;

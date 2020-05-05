@@ -48,40 +48,41 @@ class LatestLists extends Component {
     })
   }
 
+  isOpen = list => {
+    const openList = list.open
+      ? <div>
+          <ListInput listName={list.name} />
+          <List list={list} />
+        </div>
+      : ''
+    return openList
+  }
+
   render() {
     console.log('this.context', this.context.lists)
     const listRender = this.context.lists.map((list, index) => {
       let openList = list.open
-        ? (<ListInput listName={list.name} />
-          <List list={list} />)
-        : ''
-      return <div key={index} className='latest-list-container'>
-        <div className='latest-list-wrapper'>
-          <div className='grocery-list'>{list.name}</div>
-          {/* <AddItemLink location='/add-list-item' /> */}
-          <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
-            <FontAwesomeIcon icon={faPlus} />
+        ? <div>
+            <ListInput listName={list.name} />
+            <List list={list} />
           </div>
-          {openList}
-        </div>
-      </div>
+        : ''
     })
 
     return (
       <section className='active-list'>
         <h2>Active Lists</h2>
-        {listRender}
-        {/* {this.context.lists.map((list, index) => (
-          <div key={index} className={'latest-list-container ' + (list.open ? 'open' : '')}>
+        {this.context.lists.map((list, index) => (
+          <div key={index} className='latest-list-container'>
             <div className='latest-list-wrapper'>
-              <div className='grocery-list'>{list.name}</div>
+              <div className='list-name'>{list.name}</div>
               <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </div>
-            <ListInput listName={list.name} />
+            {this.isOpen(list)}
           </div>
-        ))} */}
+        ))}
       </section>
     )
   }
