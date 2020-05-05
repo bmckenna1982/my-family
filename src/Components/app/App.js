@@ -44,7 +44,8 @@ class App extends Component {
       lists: [
         {
           title: 'list title',
-          items: []
+          items: [],
+          open: false
         }
       ],
       date: moment([]),

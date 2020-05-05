@@ -1,29 +1,25 @@
 import React, { Component } from 'react'
+import AppContext from '../context/appContext'
 import './list.css'
 
 class List extends Component {
+  static contextType = AppContext
   render() {
     return (
-      <div class='shoppingList_container'>
-        <ul class='shoppingList'>
-          <li class='shoppingList_item'>
-            <div class='checkbox'>☑</div>
-            <div class='item_desc'>Milk</div>
-          </li>
-          <li class='shoppingList_item'>
-            <div class='checkbox'>☐</div>
-            <div class='item_desc'>Yogurt</div>
-          </li>
-          <li class='shoppingList_item'>
-            <div class='checkbox'>☐</div>
-            <div class='item_desc'>Swiss Cheese</div>
-          </li>
-          <li class='shoppingList_item'>
-            <div class='checkbox'>☐</div>
-            <div class='item_desc'>Coffee Creamer</div>
-          </li>
-        </ul>
-      </div>
+      <section className='list-container'>
+        <h2>{this.props.list.name}</h2>
+        <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
+          <FontAwesomeIcon icon={faPlus} /> Add Item
+              </div>
+        <ListInput listName={this.props.list.name} />
+        {this.props.list.items.map((item, index) => (
+          <div className='list-item-container' key={item.itemName}>
+            <TaskCheck checked={item.checked} />
+            <div className='list-item'>{item.itemName}</div>
+          </div>
+        ))}
+        {/* <List /> */}
+      </section>
     )
   }
 }
