@@ -26,8 +26,7 @@
 
 .icon-plus {
   height: auto;
-  padding: 0 15px;
-  opacity: 1;
+  padding: 0 15px;  
   
 }
 
@@ -41,6 +40,8 @@
 } */
 
 .latest-list-container.open .latest-list-wrapper .icon-plus {
-  max-height: 0;
-  overflow-y: hidden;
+  /* max-height: 0;
+  overflow-y: hidden; */
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }

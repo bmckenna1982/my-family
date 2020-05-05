@@ -73,7 +73,7 @@ class LatestLists extends Component {
       <section className='active-list'>
         <h2>Active Lists</h2>
         {this.context.lists.map((list, index) => (
-          <div key={index} className='latest-list-container'>
+          <div key={index} className={'latest-list-container ' + (list.open ? 'open' : '')}>
             <div className='latest-list-wrapper'>
               <div className='list-name'>{list.name}</div>
               <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
