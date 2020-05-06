@@ -1,0 +1,11 @@
+.update-completed-date {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.completed-edit {
+  border: 1px solid #111;
+  margin: 0 5px;
+  padding: 5px;
+}
