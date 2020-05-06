@@ -4,7 +4,7 @@ import Task from '../task/task'
 import AppContext from '../context/appContext'
 import AddItemLink from '../addItemLink/addItemLink'
 import PointsBar from '../pointsBar/pointsBar'
-import EditTaskModal from '../editTaskModal/editTaskModal'
+import EditTask from '../editTask/editTask'
 
 import './tasksPage.css'
 
@@ -28,7 +28,7 @@ class TasksPage extends Component {
           </div>
         </div>
         {console.log('this.context', this.context)}
-        <EditTaskModal show={this.context.showModal} taskIndex={this.context.selectedTaskIndex} />
+        {/* <EditTask show={this.context.showEdit} taskIndex={this.context.selectedTaskIndex} /> */}
       </div>
     )
   }

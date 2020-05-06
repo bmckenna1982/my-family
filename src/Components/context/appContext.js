@@ -6,7 +6,7 @@ const AppContext = React.createContext({
   date: null,
   navOpen: '',
   error: null,
-  showModal: false,
+  showEdit: false,
   selectedTaskIndex: null,
   addEvent: () => { },
   addTask: () => { },

@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from 'react-router-dom'
 import TaskCheck from "../taskCheck/taskCheck";
 import AppContext from '../context/appContext'
 
@@ -24,7 +25,9 @@ class Task extends Component {
           {/* <div className='due-date'>Due: TODAY</div> */}
           <div className='point-value'>{this.props.points}pts</div>
         </div>
-        <FontAwesomeIcon icon={faEdit} className='edit-icon' onClick={() => this.context.openEdit(this)} />
+        <Link to='/edit-task'>
+          <FontAwesomeIcon icon={faEdit} className='edit-icon' onClick={() => this.context.openEdit(this)} />
+        </Link>
       </div>
     )
   }
