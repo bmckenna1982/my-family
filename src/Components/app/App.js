@@ -16,11 +16,13 @@ import AddEvent from '../addEvent/addEvent'
 import AddTask from '../addTask/addTask'
 import Rewards from '../rewards/rewards'
 import AddReward from '../addReward/addReward'
+import EditTask from '../editTask/editTask'
 
 import AppContext from '../context/appContext'
 import { extractWeekday, extractDayOfMonth } from '../utils/utils'
 import dataStore from '../../data/dataStore'
-import './App.css';
+import './App.css'
+
 
 
 
@@ -58,7 +60,7 @@ class App extends Component {
       ],
       date: moment([]),
       navOpen: false,
-      showModal: false,
+      showEdit: false,
       selectedTaskIndex: null,
     }
   }
@@ -166,7 +168,7 @@ class App extends Component {
   openEdit = (click) => {
     console.log('clicked edit', click.props)
     this.setState({
-      showModal: true,
+      showEdit: true,
       selectedTaskIndex: click.props.index
     })
   }
@@ -178,7 +180,7 @@ class App extends Component {
       lists: this.state.lists,
       date: this.state.date,
       navOpen: this.state.navOpen,
-      showModal: this.state.showModal,
+      showEdit: this.state.showModal,
       selectedTaskIndex: this.state.selectedTaskIndex,
       addEvent: this.addEvent,
       addTask: this.addTask,
@@ -207,6 +209,7 @@ class App extends Component {
               <Route exact path='/add-event' component={AddEvent} />
               <Route exact path='/add-task' component={AddTask} />
               <Route exact path='/add-reward' component={AddReward} />
+              <Route exact path='/edit-task' component={EditTask} />
             </Switch>
           </main>
           <footer role='contentinfo'>Footer</footer>
