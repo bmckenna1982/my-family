@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
+import TasksService from '../services/tasks-services'
 import AppContext from '../context/appContext'
 
 class AddTask extends Component {
@@ -15,7 +16,6 @@ class AddTask extends Component {
 
   handleTitleChange = event => {
     event.preventDefault()
-    console.log('event.target.title', event.target.value)
     this.setState({
       title: event.target.value
     })
@@ -28,17 +28,28 @@ class AddTask extends Component {
     })
   }
 
-  addTask = event => {
-    event.preventDefault()
-    let task = this.state
-    this.context.addTask(task)
+  // addTask = event => {
+  //   event.preventDefault()
+  //   let task = this.state
+  //   this.context.addTask(task)
+  // }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const task = this.state
+    TasksService.postTask(task)
+      .then(res => {
+        this.context.addTask(res)
+      })
   }
+
+
 
   render() {
     return (
       <section className="addTask">
         <Header pageTitle='Add Task' />
-        <form className='addTask-form' onSubmit={this.addTask}>
+        <form className='addTask-form' onSubmit={this.handleSubmit}>
           <div>
             <input type="text" name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
           </div>

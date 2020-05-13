@@ -40,10 +40,10 @@ class App extends Component {
         }
       ],
       tasks: [
-        {
-          title: 'task title',
-          points: '20'
-        }
+        // {
+        //   title: '',
+        //   points: ''
+        // }
       ],
       rewards: [
         {
@@ -66,7 +66,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => this.setState(dataStore), 600)
+    // setTimeout(() => this.setState(dataStore), 600)
 
   }
 
@@ -174,6 +174,13 @@ class App extends Component {
     })
   }
 
+  setTasks = (data) => {
+    console.log('state-data', data)
+    this.setState({
+      tasks: [...data]
+    })
+  }
+
   render() {
     const contextValue = {
       events: this.state.events,
@@ -185,6 +192,7 @@ class App extends Component {
       selectedTaskIndex: this.state.selectedTaskIndex,
       addEvent: this.addEvent,
       addTask: this.addTask,
+      setTasks: this.setTasks,
       toggleListOpen: this.toggleListOpen,
       addToList: this.addToList,
       addReward: this.addReward,

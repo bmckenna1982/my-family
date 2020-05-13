@@ -1,8 +1,8 @@
 import React, { Component } from "react"
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Event from '../event/event'
 import AddItemLink from '../addItemLink/addItemLink'
-import AppContext from '../context/appContext'
+// import AppContext from '../context/appContext'
 import EventsService from '../services/events-services'
 import { eventDate, eventTime } from '../utils/utils'
 
@@ -13,7 +13,7 @@ class UpcomingEvents extends Component {
       events: []
     }
   }
-  static contextType = AppContext
+  // static contextType = AppContext
   componentDidMount() {
     EventsService.getUpcomingEvents()
       .then(data => {
@@ -29,7 +29,6 @@ class UpcomingEvents extends Component {
   }
 
   render() {
-    console.log('this.context', this.context.events)
     return (
       <section className='upcoming-events'>
         <h2>Upcoming Events</h2>

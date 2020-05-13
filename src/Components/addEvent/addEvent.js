@@ -39,7 +39,6 @@ class AddEvent extends Component {
     const newEvent = {
       ...this.state
     }
-    console.log('newEvent', newEvent)
     EventsService.postEvent(newEvent)
       .then(res => {
         // this.setState({ content: '' })

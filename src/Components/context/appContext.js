@@ -10,6 +10,7 @@ const AppContext = React.createContext({
   selectedTaskIndex: null,
   addEvent: () => { },
   addTask: () => { },
+  setTasks: () => { },
   toggleListOpen: () => { },
   addToList: () => { },
   addReward: () => { },
