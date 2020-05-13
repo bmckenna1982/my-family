@@ -34,9 +34,9 @@ class App extends Component {
       events: [
         {
           title: 'Event Title',
-          date: new Date(),
-          startTime: '15:00',
-          endTime: '16:30',
+          event_date: new Date(),
+          start_time: '15:00',
+          end_time: '16:30',
         }
       ],
       tasks: [
@@ -67,18 +67,19 @@ class App extends Component {
 
   componentDidMount() {
     setTimeout(() => this.setState(dataStore), 600)
+
   }
 
   static contextType = AppContext
 
-  handleDateChange = (date) => {
-    this.setState({ date })
+  handleDateChange = (event_date) => {
+    this.setState({ event_date })
   }
 
   addEvent = (event) => {
     // event.preventDefault()
-    const weekday = extractWeekday(event.date)
-    const dayOfMonth = extractDayOfMonth(event.date)
+    const weekday = extractWeekday(event.event_date)
+    const dayOfMonth = extractDayOfMonth(event.event_date)
     console.log('day', dayOfMonth)
     console.log('event.target', event)
     console.log('...this.state.events', ...this.state.events)
@@ -87,9 +88,9 @@ class App extends Component {
         ...this.state.events,
         {
           title: event.title,
-          date: event.date,
-          startTime: event.startTime,
-          endTime: event.endTime
+          event_date: event.event_date,
+          start_time: event.start_time,
+          end_time: event.end_time
         }
       ]
     })
