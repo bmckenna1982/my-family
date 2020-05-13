@@ -12,14 +12,14 @@ describe('Event component', () => {
 
   it('renders the UI as expected without day', () => {
     const tree = renderer
-      .create(<Event startTime='3pm' title='Baseball practice' />)
+      .create(<Event start_time='3pm' title='Baseball practice' />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   });
 
   it('renders the UI as expected with day', () => {
     const tree = renderer
-      .create(<Event day='Today' startTime='3pm' title='Baseball practice' />)
+      .create(<Event day='Today' start_time='3pm' title='Baseball practice' />)
       .toJSON()
     expect(tree).toMatchSnapshot()
   });

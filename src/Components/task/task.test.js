@@ -1,12 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import renderer from 'react-test-renderer'
+import { BrowserRouter } from 'react-router-dom'
 import Task from './task';
 
 describe('Task component', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
-    ReactDOM.render(<Task />, div)
+    ReactDOM.render(<BrowserRouter>
+      <Task />
+    </BrowserRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
 

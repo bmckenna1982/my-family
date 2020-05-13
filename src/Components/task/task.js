@@ -19,7 +19,7 @@ class Task extends Component {
   render() {
     return (
       <div className='task'>
-        <TaskCheck />
+        <TaskCheck key={this.props.taskId} checked={this.props.checked} taskId={this.props.taskId} index={this.props.index} />
         <div className='task-desc'>
           <div className='task-title'>{this.props.title}</div>
           {/* <div className='due-date'>Due: TODAY</div> */}
