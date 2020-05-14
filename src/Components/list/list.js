@@ -22,18 +22,23 @@ class List extends Component {
     //get all the list items for this list
     ListItemsService.getAllListItems(this.props.list.id)
       .then(data =>
+        // this.context.setListItems(data)
         this.setState({
-          listItems: [...data]
+          listItems: [
+            ...this.state.listItems,
+            ...data
+          ]
         })
       )
   }
 
   renderList = () => {
+    console.log('this.context.listItems', this.state.listItems)
     const renderDisplay = this.state.listItems
       ? this.state.listItems.map((item, index) => (
-        <div className='list-item-container' key={item.itemName}>
+        <div className='list-item-container' key={item.title}>
           <TaskCheck checked={item.checked} listItemId={item.id} />
-          <div className='list-item'>{item.itemName}</div>
+          <div className='list-item'>{item.title}</div>
         </div>
       ))
       : ''
@@ -42,15 +47,14 @@ class List extends Component {
   }
 
   render() {
-    console.log('this.props.list', this.props.list)
     return (
       // <div>{this.props.list.title}</div>
       <div className={'list-container ' + (this.state.open ? 'open' : '')}>
-        <h2>{this.props.list.title}</h2>
-        <div className='icon-plus' onClick={() => this.context.toggleListOpen(this.props.list.id)}>
+        {/* <h2>{this.props.list.title}</h2> */}
+        {/* <div className='icon-plus' onClick={() => this.context.toggleListOpen(this.props.list.id)}>
           <FontAwesomeIcon icon={faPlus} /> Add Item
         </div>
-        <ListInput listName={this.props.list.title} />
+        <ListInput listName={this.props.list.title} /> */}
         {this.renderList()}
       </div>
     )

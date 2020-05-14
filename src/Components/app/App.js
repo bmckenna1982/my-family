@@ -39,12 +39,7 @@ class App extends Component {
           end_time: '16:30',
         }
       ],
-      tasks: [
-        // {
-        //   title: '',
-        //   points: ''
-        // }
-      ],
+      tasks: [],
       rewards: [
         {
           title: 'reward title',
@@ -52,6 +47,7 @@ class App extends Component {
         }
       ],
       lists: [],
+      listItems: [],
       date: moment([]),
       navOpen: false,
       showEdit: false,
@@ -119,27 +115,36 @@ class App extends Component {
     this.props.history.goBack()
   }
 
-  addToList = (listName, newItem) => {
+  addListItem = (newItem) => {
     console.log('newItem', newItem)
-    console.log('this.state.lists', this.state.lists)
-    const updatedLists = this.state.lists.map(list => {
-      console.log('list', list)
-      console.log('listName', listName)
-      if (list.name === listName && newItem !== '') {
-        list.items.push({
-          checked: false,
-          itemName: newItem
-        })
-      }
-      list.open = false
-      return list
-    })
-    console.log('updatedLists', updatedLists)
+    console.log('this.state.lists.id[1]', this.state.lists)
     this.setState({
-      lists: [
-        ...updatedLists
+      listItems: [
+        ...this.state.listItems,
+        newItem
       ]
     })
+    //   }
+    // })
+    // console.log('this.state.lists', this.state.lists)
+    // const updatedLists = this.state.lists.map(list => {
+    //   console.log('list', list)
+    //   // console.log('listName', listName)
+    //   if (list.name === listName && newItem !== '') {
+    //     list.items.push({
+    //       checked: false,
+    //       itemName: newItem
+    //     })
+    //   }
+    //   list.open = false
+    //   return list
+    // })
+    // console.log('updatedLists', updatedLists)
+    // this.setState({
+    //   lists: [
+    //     ...updatedLists
+    //   ]
+    // })
   }
 
   toggleListOpen = index => {
@@ -182,6 +187,12 @@ class App extends Component {
     })
   }
 
+  setListItems = (data) => {
+    this.setState({
+      listItems: [...data]
+    })
+  }
+
   addList = (data) => {
     console.log('data', data)
     this.setState({
@@ -205,15 +216,16 @@ class App extends Component {
       addTask: this.addTask,
       setTasks: this.setTasks,
       toggleListOpen: this.toggleListOpen,
-      addToList: this.addToList,
+      addListItem: this.addListItem,
       addList: this.addList,
       setLists: this.setLists,
+      setListItems: this.setListItems,
       addReward: this.addReward,
       openEdit: this.openEdit
     }
 
     return (
-      <AppContext.Provider value={contextValue}>
+      <AppContext.Provider value={contextValue} >
         <div className="App">
           <TopBar />
           <Hamburger />
@@ -236,7 +248,7 @@ class App extends Component {
           </main>
           <footer role='contentinfo'>Footer</footer>
         </div>
-      </AppContext.Provider>
+      </AppContext.Provider >
     );
   }
 }

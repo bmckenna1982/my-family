@@ -51,7 +51,7 @@ class LatestLists extends Component {
   isOpen = list => {
     const openList = list.open
       ? <div>
-        <ListInput listName={list.name} />
+        <ListInput list={list} />
         <List list={list} />
       </div>
       : ''
@@ -80,6 +80,7 @@ class LatestLists extends Component {
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </div>
+            {console.log('list', list)}
             {this.isOpen(list)}
           </div>
         ))}
