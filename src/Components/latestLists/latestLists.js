@@ -9,6 +9,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 
 import './latestLists.css'
+import ListsService from '../services/lists-service'
 
 
 class LatestLists extends Component {
@@ -22,13 +23,12 @@ class LatestLists extends Component {
     }
   }
 
-
-
-  // componentDidMount() {
-  //   this.setState({
-  //     lists: this.context.lists
-  //   })
-  // }
+  componentDidMount() {
+    ListsService.getAllLists()
+      .then(data => {
+        this.context.setLists(data)
+      })
+  }
   // listsOpen = () => {
   //   const listsStatus = this.context.lists.map(list => {
   //     list.open = false
@@ -51,23 +51,23 @@ class LatestLists extends Component {
   isOpen = list => {
     const openList = list.open
       ? <div>
-          <ListInput listName={list.name} />
-          <List list={list} />
-        </div>
+        <ListInput listName={list.name} />
+        <List list={list} />
+      </div>
       : ''
     return openList
   }
 
   render() {
     console.log('this.context', this.context.lists)
-    const listRender = this.context.lists.map((list, index) => {
-      let openList = list.open
-        ? <div>
-            <ListInput listName={list.name} />
-            <List list={list} />
-          </div>
-        : ''
-    })
+    // const listRender = this.context.lists.map((list, index) => {
+    //   let openList = list.open
+    //     ? <div>
+    //         <ListInput listName={list.name} />
+    //         <List list={list} />
+    //       </div>
+    //     : ''
+    // })
 
     return (
       <section className='active-list'>
@@ -75,7 +75,7 @@ class LatestLists extends Component {
         {this.context.lists.map((list, index) => (
           <div key={index} className={'latest-list-container ' + (list.open ? 'open' : '')}>
             <div className='latest-list-wrapper'>
-              <div className='list-name'>{list.name}</div>
+              <div className='list-name'>{list.title}</div>
               <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
                 <FontAwesomeIcon icon={faPlus} />
               </div>

@@ -51,13 +51,7 @@ class App extends Component {
           points: '200'
         }
       ],
-      lists: [
-        {
-          title: 'list title',
-          items: [],
-          open: false
-        }
-      ],
+      lists: [],
       date: moment([]),
       navOpen: false,
       showEdit: false,
@@ -181,6 +175,23 @@ class App extends Component {
     })
   }
 
+  setLists = (data) => {
+    console.log('lists-data', data)
+    this.setState({
+      lists: [...data]
+    })
+  }
+
+  addList = (data) => {
+    console.log('data', data)
+    this.setState({
+      lists: [
+        ...this.state.lists,
+        data
+      ]
+    })
+  }
+
   render() {
     const contextValue = {
       events: this.state.events,
@@ -195,6 +206,8 @@ class App extends Component {
       setTasks: this.setTasks,
       toggleListOpen: this.toggleListOpen,
       addToList: this.addToList,
+      addList: this.addList,
+      setLists: this.setLists,
       addReward: this.addReward,
       openEdit: this.openEdit
     }
