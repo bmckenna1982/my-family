@@ -87,6 +87,12 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+  setEvents = (events) => {
+    this.setState({
+      events: [...events]
+    })
+  }
+
   addTask = task => {
     console.log('task', task)
     this.setState({
@@ -124,27 +130,6 @@ class App extends Component {
         newItem
       ]
     })
-    //   }
-    // })
-    // console.log('this.state.lists', this.state.lists)
-    // const updatedLists = this.state.lists.map(list => {
-    //   console.log('list', list)
-    //   // console.log('listName', listName)
-    //   if (list.name === listName && newItem !== '') {
-    //     list.items.push({
-    //       checked: false,
-    //       itemName: newItem
-    //     })
-    //   }
-    //   list.open = false
-    //   return list
-    // })
-    // console.log('updatedLists', updatedLists)
-    // this.setState({
-    //   lists: [
-    //     ...updatedLists
-    //   ]
-    // })
   }
 
   toggleListOpen = index => {
@@ -217,6 +202,7 @@ class App extends Component {
       showEdit: this.state.showModal,
       selectedTaskIndex: this.state.selectedTaskIndex,
       addEvent: this.addEvent,
+      setEvents: this.setEvents,
       addTask: this.addTask,
       setTasks: this.setTasks,
       toggleListOpen: this.toggleListOpen,

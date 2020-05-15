@@ -5,6 +5,7 @@ import AddItemLink from '../addItemLink/addItemLink'
 import { extractMonth } from '../utils/utils'
 import AppContext from '../context/appContext'
 import './calendar.css'
+import EventsService from '../services/events-services'
 
 
 class Calendar extends Component {
@@ -18,6 +19,14 @@ class Calendar extends Component {
   }
 
   static contextType = AppContext
+
+  componentDidMount() {
+    EventsService.getEvents()
+      .then(data => {
+        this.context.setEvents(data)
+      })
+  }
+
 
   showMonth(showMonth) {
     console.log('showMonth', showMonth)
