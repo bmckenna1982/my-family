@@ -20,14 +20,6 @@ class Calendar extends Component {
 
   static contextType = AppContext
 
-  componentDidMount() {
-    EventsService.getEvents()
-      .then(data => {
-        this.context.setEvents(data)
-      })
-  }
-
-
   showMonth(showMonth) {
     console.log('showMonth', showMonth)
     this.setState({ showMonth })
