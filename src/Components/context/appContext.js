@@ -3,6 +3,7 @@ import React from 'react'
 const AppContext = React.createContext({
   events: [],
   tasks: [],
+  listItems: [],
   date: null,
   navOpen: '',
   error: null,
@@ -12,9 +13,10 @@ const AppContext = React.createContext({
   addTask: () => { },
   setTasks: () => { },
   toggleListOpen: () => { },
-  addToList: () => { },
+  addListItem: () => { },
   addList: () => { },
   setLists: () => { },
+  setListItems: () => { },
   addReward: () => { },
   openEdit: () => { }
 })

@@ -11,29 +11,52 @@ class List extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      lists: [
+        {
+          id: null,
+          listItems: [],
+        }
+      ],
+      id: null,
       listItems: [],
+      // listItems: [],
       open: false
     }
   }
 
   static contextType = AppContext
 
-  componentDidMount() {
-    //get all the list items for this list
-    ListItemsService.getAllListItems(this.props.list.id)
-      .then(data =>
-        this.setState({
-          listItems: [...data]
-        })
-      )
-  }
+  // componentDidMount() {
+  //   //get all the list items for this list
+  //   ListItemsService.getAllListItems(this.props.list.id)
+  //     .then(data => {
+  //       const newLists = data.map(list =>
+  //         list.id === this.props.list.id
+  //           ? { ...list, listItems: data }
+  //           : list
+  //       )
+  //       console.log('newLists', newLists)
+
+  //       return (this.setState({
+  //         lists: newLists
+  //         // listItems: [
+  //         //   ...this.state.listItems,
+  //         //   ...data
+  //         // ]
+  //       })
+  //       )
+  //     })
+  // }
 
   renderList = () => {
-    const renderDisplay = this.state.listItems
-      ? this.state.listItems.map((item, index) => (
-        <div className='list-item-container' key={item.itemName}>
+    console.log('this.state.listItems', this.state.lists.listItems)
+    console.log('this.state.listItems', this.props.list)
+    const currentListItems = this.context.listItems.filter(item => item.list_id === this.props.list.id) || null
+    const renderDisplay = currentListItems
+      ? currentListItems.map((item, index) => (
+        <div className='list-item-container' key={item.id}>
           <TaskCheck checked={item.checked} listItemId={item.id} />
-          <div className='list-item'>{item.itemName}</div>
+          <div className='list-item'>{item.title}</div>
         </div>
       ))
       : ''
@@ -42,42 +65,12 @@ class List extends Component {
   }
 
   render() {
-    console.log('this.props.list', this.props.list)
     return (
       // <div>{this.props.list.title}</div>
       <div className={'list-container ' + (this.state.open ? 'open' : '')}>
-        <h2>{this.props.list.title}</h2>
-        <div className='icon-plus' onClick={() => this.context.toggleListOpen(this.props.list.id)}>
-          <FontAwesomeIcon icon={faPlus} /> Add Item
-        </div>
-        <ListInput listName={this.props.list.title} />
         {this.renderList()}
       </div>
     )
-    //   < div className = { 'list-container ' + (list.open ? 'open' : '') } key = { index } >
-    //     <h2>{list.name}</h2>
-    //     <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
-    //       <FontAwesomeIcon icon={faPlus} /> Add Item
-    //         </div>
-    //     <ListInput listName={list.name} />
-    //   {
-    //   list.items.map((item, index) => (
-    //     <div className='list-item-container' key={item.itemName}>
-    //       <TaskCheck checked={item.checked} />
-    //       <div className='list-item'>{item.itemName}</div>
-    //     </div>
-    //   ))
-    // }
-    // </div >
-    //   <div className='list-container' >
-    //     {this.props.list.items.map((item, index) => (
-    //       <div className='list-item-container' key={item.itemName}>
-    //         <TaskCheck checked={item.checked} />
-    //         <div className='list-item'>{item.itemName}</div>
-    //       </div>
-    //     ))}
-    //   </div>
-
   }
 }
 
