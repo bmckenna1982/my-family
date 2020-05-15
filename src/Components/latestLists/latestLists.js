@@ -10,6 +10,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import './latestLists.css'
 import ListsService from '../services/lists-service'
+import ListItemsService from '../services/listItems-service'
 
 
 class LatestLists extends Component {
@@ -28,6 +29,12 @@ class LatestLists extends Component {
       .then(data => {
         this.context.setLists(data)
       })
+
+    ListItemsService.getAllListItems()
+      .then(data => {
+        this.context.setListItems(data)
+      })
+
   }
   // listsOpen = () => {
   //   const listsStatus = this.context.lists.map(list => {

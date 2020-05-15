@@ -189,7 +189,10 @@ class App extends Component {
 
   setListItems = (data) => {
     this.setState({
-      listItems: [...data]
+      listItems: [
+        ...data,
+
+      ]
     })
   }
 
@@ -208,6 +211,7 @@ class App extends Component {
       events: this.state.events,
       tasks: this.state.tasks,
       lists: this.state.lists,
+      listItems: this.state.listItems,
       date: this.state.date,
       navOpen: this.state.navOpen,
       showEdit: this.state.showModal,

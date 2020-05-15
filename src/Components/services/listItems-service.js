@@ -2,7 +2,21 @@ import config from '../../config'
 // import TokenService from './token-service'
 
 const ListItemsService = {
-  getAllListItems(listId) {
+  getAllListItems() {
+    return fetch(`${config.API_ENDPOINT}/listItems`, {
+      headers: {
+      },
+      method: 'GET',
+    })
+      .then(res => {
+        console.log('res', res)
+        if (!res.ok) {
+          throw new Error(res.statusText)
+        }
+        return res.json()
+      })
+  },
+  getListItemsByList(listId) {
     console.log('listId', listId)
     return fetch(`${config.API_ENDPOINT}/lists/${listId}/listItems`, {
       headers: {

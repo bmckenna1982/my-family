@@ -3,6 +3,7 @@ import React from 'react'
 const AppContext = React.createContext({
   events: [],
   tasks: [],
+  listItems: [],
   date: null,
   navOpen: '',
   error: null,
