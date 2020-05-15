@@ -10,6 +10,7 @@ import './listsPage.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import ListItemsService from '../services/listItems-service'
 
 class ListsPage extends Component {
   constructor(props) {
@@ -28,7 +29,17 @@ class ListsPage extends Component {
       })
       .catch(err => {
         this.setState({
-          error: `Couldn't get tasks data at this time`
+          error: `Couldn't get lists data at this time`
+        })
+      })
+
+    ListItemsService.getAllListItems()
+      .then(data => {
+        this.context.setListItems(data)
+      })
+      .catch(err => {
+        this.setState({
+          error: `Couldn't get list items data at this time`
         })
       })
   }
@@ -38,20 +49,10 @@ class ListsPage extends Component {
     const listsDisplay = this.context.lists[0]
       ? this.context.lists.map((list, index) =>
         (
-          <List key={list.title} list={list} />
-          // <section className={'list-container ' + (list.open ? 'open' : '')} key={index}>
-          //   <h2>{list.name}</h2>
-          //   <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
-          //     <FontAwesomeIcon icon={faPlus} /> Add Item
-          //     </div>
-          //   <ListInput listName={list.name} />
-          //   {list.items.map((item, index) => (
-          //     <div className='list-item-container' key={item.itemName}>
-          //       <TaskCheck checked={item.checked} />
-          //       <div className='list-item'>{item.itemName}</div>
-          //     </div>
-          //   ))}
-          // </section>
+          <div className='list-container'>
+            <h2 className='list-name'>{list.title}</h2>
+            <List key={list.title} list={list} />
+          </div>
         ))
       : ''
     return listsDisplay
