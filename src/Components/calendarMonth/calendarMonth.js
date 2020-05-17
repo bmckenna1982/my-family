@@ -1,10 +1,23 @@
 import React, { Component } from 'react'
-import Header from '../header/header'
 import moment from 'moment'
+import { formatForCompare } from '../utils/utils'
+import AppContext from '../context/appContext'
 import './calendarMonth.css'
 
 
 class CalendarMonth extends Component {
+  static contextType = AppContext
+  // renderNotification = (events) => {
+  //   const eventsThisMonth = this.context.events.filter(event => formatForCompare(event.event_date) === formatForCompare(new Date()))
+
+  //   const notificationDisplay = 
+  //   return (
+  //     <div className='event-notification'> 
+  //       <div className='events--notification-count'>2</div>
+  //     </div>
+  //   )
+  // }
+
   render() {
     console.log('month')
     const weekdayShort = moment.weekdaysShort()
@@ -51,13 +64,29 @@ class CalendarMonth extends Component {
       return moment(dateObject).format("D");
     };
 
+    const getEventsForDay = (day) => {
+      console.log('day', day)
+      console.log('this.context.events', this.context.events)
+      let events = this.context.events.filter(event => formatForCompare(event.event_date) === formatForCompare(day))
+      console.log('events', events)
+      return events.length
+    }
+
+
     const currentMonth = moment([]).format('MMMM')
     const daysInMonth = []
     for (let d = 1; d < moment().daysInMonth(currentMonth); d++) {
       let currentDay = d == getCurrentDay() ? "today" : "";
+      let date = `${moment([]).format('YYYY')}-${moment([]).format('MMMM')}-${d}`
+      let eventsCount = getEventsForDay(date) > 0
+        ? <div className='event-notification'>
+          <div className='events--notification-count'>{getEventsForDay(date)}</div>
+        </div>
+        : ''
       daysInMonth.push(
         <div key={d} className={`calendar-month-day ${currentDay}`}>
           {d}
+          {eventsCount}
         </div>
       )
     }
@@ -84,6 +113,7 @@ class CalendarMonth extends Component {
     let daysinmonth = rows.map((d, i) => {
       return <div className='calendar-row' key={i}>{d}</div>
     })
+
 
 
     console.log('weekdayShortName', weekdayShortName)
