@@ -35,11 +35,12 @@
 }
 
 .calendar-month-day {  
-  border-radius: 50%;
+  border-radius: 20%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 
 .calendar-row {
@@ -57,6 +58,24 @@
 
 .today {
   font-weight: 600;
-  background-color: aqua;
+  background-color: rgba(8,88,112,1);
   color: #fff;
+}
+
+.event-notification {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(8,88,112,1);
+  color: #fff;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%; 
+  font-weight: normal;
+  line-height: 20px;
+}
+
+.today .event-notification {
+  color: rgba(8,88,112,1);
+  background-color: #fff;
 }
