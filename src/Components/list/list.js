@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TaskCheck from '../taskCheck/taskCheck'
+import ListCheck from '../listCheck/listCheck'
 import ListInput from '../listInput/listInput'
 import AppContext from '../context/appContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -55,7 +55,7 @@ class List extends Component {
     const renderDisplay = currentListItems
       ? currentListItems.map((item, index) => (
         <div className='list-item-container' key={item.id}>
-          <TaskCheck checked={item.checked} listItemId={item.id} />
+          <ListCheck checked={item.checked} listItemId={item.id} />
           <div className='list-item'>{item.title}</div>
         </div>
       ))
