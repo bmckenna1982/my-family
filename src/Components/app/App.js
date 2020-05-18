@@ -52,6 +52,7 @@ class App extends Component {
       navOpen: false,
       showEdit: false,
       selectedTaskIndex: null,
+      currentUser: {}
     }
   }
 
@@ -191,6 +192,12 @@ class App extends Component {
     })
   }
 
+  setCurrentUser = (data) => {
+    this.setState({
+      currentUser: { ...data }
+    })
+  }
+
   render() {
     const contextValue = {
       events: this.state.events,
@@ -201,6 +208,7 @@ class App extends Component {
       navOpen: this.state.navOpen,
       showEdit: this.state.showModal,
       selectedTaskIndex: this.state.selectedTaskIndex,
+      currentUser: this.state.currentUser,
       addEvent: this.addEvent,
       setEvents: this.setEvents,
       addTask: this.addTask,
@@ -211,7 +219,8 @@ class App extends Component {
       setLists: this.setLists,
       setListItems: this.setListItems,
       addReward: this.addReward,
-      openEdit: this.openEdit
+      openEdit: this.openEdit,
+      setCurrentUser: this.setCurrentUser
     }
 
     return (
