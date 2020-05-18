@@ -6,9 +6,13 @@ class TaskCheck extends Component {
 
   handleChange = (e) => {
     e.preventDefault()
-    console.log('e.target.checked', e.target.checked)
     const taskToUpdateId = this.props.taskId
-    const fieldsToUpdate = { complete: e.target.checked }
+    //need to also get logged in user and send user_id so points will be added
+    const fieldsToUpdate = {
+      complete: e.target.checked,
+      completed_date: new Date(),
+      user_id: 1,
+    }
     //need to send task id and checked: true
     TasksService.updateTask(taskToUpdateId, fieldsToUpdate)
       .then(() => {
@@ -17,6 +21,7 @@ class TaskCheck extends Component {
             this.context.setTasks(res)
           })
       })
+
 
   }
 

@@ -7,10 +7,23 @@ import PointsBar from '../pointsBar/pointsBar'
 import EditTask from '../editTask/editTask'
 
 import './tasksPage.css'
+import TasksService from '../services/tasks-services'
 
 
 class TasksPage extends Component {
   static contextType = AppContext
+
+  componentDidMount() {
+    TasksService.getAllTasks()
+      .then(data =>
+        this.context.setTasks(data)
+      )
+      .catch(err => {
+        this.setState({
+          error: `Couldn't get tasks data at this time`
+        })
+      })
+  }
 
   render() {
     return (
@@ -21,13 +34,13 @@ class TasksPage extends Component {
         <div className='tasks-list'>
           <div className='tasks-container'>
             {this.context.tasks.map((task, index) => (
-              <Task key={task.title} title={task.title} points={task.points} checked='task.checked' index={index} />
+              // <Task key={task.title} title={task.title} points={task.points} checked='task.checked' index={index} />
+              <Task key={task.id} title={task.title} points={task.points} checked={task.complete} taskId={task.id} index={index} />
             ))
             }
 
           </div>
         </div>
-        {console.log('this.context', this.context)}
         {/* <EditTask show={this.context.showEdit} taskIndex={this.context.selectedTaskIndex} /> */}
       </div>
     )
