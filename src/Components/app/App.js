@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom'
 import moment from 'moment'
+import PrivateRoute from '../utils/PrivateRoute';
+import PublicOnlyRoute from '../utils/PublicOnlyRoute';
 
 import TopBar from '../topBar/topBar'
 import Hamburger from '../hamburger/hamburger'
@@ -17,6 +19,11 @@ import AddTask from '../addTask/addTask'
 import Rewards from '../rewards/rewards'
 import AddReward from '../addReward/addReward'
 import EditTask from '../editTask/editTask'
+// import LandingPage from '../landingPage/landingPage'
+import TokenService from '../services/token-services';
+import AuthApiService from '../services/auth-api-services';
+import IdleService from '../services/idle-services';
+import './App.css';
 
 import AppContext from '../context/appContext'
 import { extractWeekday, extractDayOfMonth } from '../utils/utils'
@@ -56,12 +63,35 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    // setTimeout(() => this.setState(dataStore), 600)
+  static contextType = AppContext
 
+  static getDerivedStateFromError(error) {
+    console.error(error)
+    return { hasError: true }
   }
 
-  static contextType = AppContext
+  componentDidMount() {
+    IdleService.setIdleCallback(this.logoutFromIdle);
+
+    if (TokenService.hasAuthToken()) {
+      IdleService.registerIdleTimerResets();
+      TokenService.queueCallbackBeforeExpiry(() => {
+        AuthApiService.postRefreshToken();
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    IdleService.unRegisterIdleResets();
+    TokenService.clearCallbackBeforeExpiry();
+  }
+
+  logoutFromIdle = () => {
+    TokenService.clearAuthToken();
+    TokenService.clearCallbackBeforeExpiry();
+    IdleService.unRegisterIdleResets();
+    this.forceUpdate();
+  };
 
   handleDateChange = (event_date) => {
     this.setState({ event_date })
@@ -231,12 +261,13 @@ class App extends Component {
           <Nav />
           <main role='main'>
             <Switch>
+              {/* <PublicOnlyRoute exact path='/' component={LandingPage} /> */}
               <Route exact path='/' component={HomePage} />
-              <Route exact path='/log-in' component={Login} />
-              <Route exact path='/register' component={Register} />
-              <Route exact path='/calendar' component={Calendar} />
-              <Route exact path='/tasks' component={TasksPage} />
-              <Route exact path='/lists' component={ListPage} />
+              <PublicOnlyRoute exact path='/log-in' component={Login} />
+              <PublicOnlyRoute exact path='/register' component={Register} />
+              <PrivateRoute exact path='/calendar' component={Calendar} />
+              <PrivateRoute exact path='/tasks' component={TasksPage} />
+              <PrivateRoute exact path='/lists' component={ListPage} />
               <Route exact path='/family' component={FamilyPage} />
               <Route exact path='/rewards' component={Rewards} />
               <Route exact path='/add-event' component={AddEvent} />
