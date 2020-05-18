@@ -9,6 +9,7 @@ const AppContext = React.createContext({
   error: null,
   showEdit: false,
   selectedTaskIndex: null,
+  currentUser: {},
   addEvent: () => { },
   setEvents: () => { },
   addTask: () => { },
@@ -19,7 +20,8 @@ const AppContext = React.createContext({
   setLists: () => { },
   setListItems: () => { },
   addReward: () => { },
-  openEdit: () => { }
+  openEdit: () => { },
+  setCurrentUser: () => { }
 })
 
 export default AppContext
