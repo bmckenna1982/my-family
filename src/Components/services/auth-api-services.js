@@ -15,17 +15,17 @@ const AuthApiService = {
         !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
       )
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res)
         IdleService.registerIdleTimerResets()
 
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()
         })
+
         return res
       })
   },
   postUser(user) {
-    console.log('user', user)
     return fetch(`${config.API_ENDPOINT}/users`, {
       method: 'POST',
       headers: {
@@ -33,8 +33,6 @@ const AuthApiService = {
       },
       body: JSON.stringify(user)
     }).then(res => {
-
-      console.log('res', res)
       return !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
     }
     )
@@ -46,13 +44,14 @@ const AuthApiService = {
         'Authorization': `bearer ${TokenService.getAuthToken()}`
       }
     })
-      .then(res =>
+      .then(res => {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
+      }
       )
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res)
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()
         })

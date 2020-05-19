@@ -1,10 +1,12 @@
 import config from '../../config'
-// import TokenService from './token-service'
+import TokenService from './token-services'
 
 const EventsService = {
   getEvents() {
     return fetch(`${config.API_ENDPOINT}/events`, {
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
       method: 'GET',
     })
@@ -18,7 +20,8 @@ const EventsService = {
   getEvent(eventId) {
     return fetch(`${config.API_ENDPOINT}/events/${eventId}`, {
       headers: {
-        // 'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
     })
       .then(res =>
@@ -30,7 +33,8 @@ const EventsService = {
   getUpcomingEvents() {
     return fetch(`${config.API_ENDPOINT}/events/upcoming`, {
       headers: {
-        // 'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
     })
       .then(res =>
@@ -43,6 +47,7 @@ const EventsService = {
     return fetch(`${config.API_ENDPOINT}/events`, {
       method: 'POST',
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       body: JSON.stringify(event)
@@ -52,18 +57,6 @@ const EventsService = {
           ? res.json().then(e => Promise.reject(e))
           : res.json())
   },
-  // getRsvp(gameId) {
-  //   return fetch(`${config.API_ENDPOINT}/events/${eventId}/rsvp`, {
-  //     headers: {
-  //       'Authorization': `bearer ${TokenService.getAuthToken()}`,
-  //     },
-  //   })
-  //     .then(res =>
-  //       (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res.json()
-  //     )
-  // },
 
 }
 

@@ -17,7 +17,6 @@ class CalendarWeek extends Component {
   }
 
   renderEvent = (day) => {
-    console.log('day', day)
     if (day.events) {
       for (const e of day.events) {
         return (
@@ -27,15 +26,12 @@ class CalendarWeek extends Component {
         )
       }
     }
-
-    // return <div>render Event</div>
   }
 
   render() {
     let days = []
     const now = Moment([])
 
-    console.log('this.context.events', this.context.events)
     days.push({
       dayOfWeek: 'Today',
       dayOfMonth: now.format('D'),
@@ -43,14 +39,12 @@ class CalendarWeek extends Component {
     })
     for (let i = 1; i <= 6; i++) {
       let compareDate = Moment([]).add(i, 'day')
-      console.log('compareDate', compareDate)
       days.push({
         dayOfWeek: now.add(1, 'day').format('dddd'),
         dayOfMonth: now.format('D'),
         events: this.context.events.filter(event => formatForCompare(event.event_date) === formatForCompare(compareDate))
       })
     }
-    console.log('days', days)
     return (
       <div className='calendar-week-wrapper' id='week'>
         {days.map(day => (
@@ -61,9 +55,6 @@ class CalendarWeek extends Component {
                 <div className='calendar-date'>{day.dayOfMonth}</div>
               </div>
               {this.renderEvent(day)}
-              {/* <div className='calendar-event-container'>
-                <Event title='Baseball practice' time='3pm' />
-              </div> */}
             </div>
           </div>
         ))}

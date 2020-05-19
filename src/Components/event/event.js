@@ -3,7 +3,6 @@ import './event.css'
 
 class Event extends Component {
   render() {
-    console.log('this.props', this.props)
     return (
       <div className='event-container'>
         <div className='event-day'>{this.props.day} </div>

@@ -28,7 +28,6 @@ class ListCheck extends Component {
   render() {
     let itemChecked = this.props.checked
     const listItemId = this.props.taskId
-    console.log('this.props', this.props)
     return (
       <input className='listItem-check' type='checkbox' name={`listItem-${listItemId}`} id={`listItem-${listItemId}`} onChange={this.handleChange} checked={itemChecked} />
 

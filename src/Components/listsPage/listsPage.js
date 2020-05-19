@@ -24,7 +24,6 @@ class ListsPage extends Component {
   componentDidMount() {
     ListsService.getAllLists()
       .then(data => {
-        console.log('list-data', data)
         this.context.setLists(data)
       })
       .catch(err => {
@@ -45,7 +44,6 @@ class ListsPage extends Component {
   }
 
   renderLists = () => {
-    console.log('this.context.lists', this.context.lists)
     const listsDisplay = this.context.lists[0]
       ? this.context.lists.map((list, index) =>
         (
@@ -73,7 +71,6 @@ class ListsPage extends Component {
   }
 
   render() {
-    console.log('rendering')
     const currentLists = this.context.lists
     return (
       <div className='Shopping Lists'>
@@ -86,23 +83,6 @@ class ListsPage extends Component {
 
         {this.renderCreateList()}
         {this.renderLists()}
-        {/* {this.context.lists && this.context.lists.map((list, index) =>
-          (
-            <section className={'list-container ' + (list.open ? 'open' : '')} key={index}>
-              <h2>{list.name}</h2>              
-              <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
-                <FontAwesomeIcon icon={faPlus} /> Add Item
-              </div>
-              <ListInput listName={list.name} />
-              {list.items.map((item, index) => (
-                <div className='list-item-container' key={item.itemName}>
-                  <TaskCheck checked={item.checked} />
-                  <div className='list-item'>{item.itemName}</div>
-                </div>
-              ))}              
-            </section>
-          ))
-        } */}
       </div>
     )
   }

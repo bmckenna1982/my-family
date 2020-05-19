@@ -41,9 +41,6 @@ class AddEvent extends Component {
     }
     EventsService.postEvent(newEvent)
       .then(res => {
-        // this.setState({ content: '' })
-        // this.context.toggleEventForm()
-        console.log('res', res)
         this.context.addEvent(res)
       })
   }

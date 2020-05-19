@@ -6,10 +6,14 @@ const _TEN_SECONDS_IN_MS = 10000
 
 const TokenService = {
   saveAuthToken(token) {
-    window.sessionStorage.setItem(config.TOKEN_KEY, token)
+    window.sessionStorage.setItem(config.TOKEN_KEY, token.authToken)
+    window.sessionStorage.setItem(config.SESSION_KEY, token.sessionId)
   },
   getAuthToken() {
     return window.sessionStorage.getItem(config.TOKEN_KEY)
+  },
+  getSessionId() {
+    return window.sessionStorage.getItem(config.SESSION_KEY)
   },
   clearAuthToken() {
     window.sessionStorage.removeItem(config.TOKEN_KEY)

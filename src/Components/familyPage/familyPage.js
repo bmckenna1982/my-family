@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
 import './familyPage.css'
+import UsersService from '../services/users-service'
 
 class FamilyPage extends Component {
   static defaultProps = {
@@ -40,6 +41,12 @@ class FamilyPage extends Component {
     ]
   }
 
+  // componentDidMount() {
+  //   UsersService.getAllUsers(family)
+  //     .then(res => {
+  //       this.context.setUsers()
+  //     })
+  // }
   // getSum = (total, num) => {
   //   return total + Math.round(num)
   // }
@@ -54,13 +61,10 @@ class FamilyPage extends Component {
       }
     }, 0
     )
-
-    console.log('memberTotal', memberTotal)
     return memberTotal
   }
 
   render() {
-    console.log('this.props', this.props)
     return (
       <div className='family-page'>
         <Header pageTitle='Family Page' />

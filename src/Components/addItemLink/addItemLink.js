@@ -6,7 +6,6 @@ import './addItemLink.css'
 
 class AddItemLink extends Component {
   render() {
-    console.log('this.props.itemName', this.props.itemName)
     const addText = this.props.itemName
       ? `Add ${this.props.itemName}`
       : ''

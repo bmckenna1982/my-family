@@ -15,7 +15,6 @@ class AddReward extends Component {
 
   handleTitleChange = event => {
     event.preventDefault()
-    console.log('event.target.title', event.target.value)
     this.setState({
       title: event.target.value
     })

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import AppContext from '../context/appContext'
 import './login.css'
 
 import TokenService from '../services/token-services';
@@ -13,19 +14,20 @@ class Login extends Component {
     }
   };
 
+  static contextType = AppContext
   state = { error: null };
 
-  handleLoginSuccess = () => {
+  handleLoginSuccess = (user_id) => {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/home';
     history.push(destination);
+    this.context.setCurrentUser({ id: user_id })
   };
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
     this.setState({ error: null });
     const { email, password } = ev.target;
-
     AuthApiService.postLogin({
       email: email.value.toLowerCase(),
       password: password.value
@@ -33,8 +35,8 @@ class Login extends Component {
       .then(res => {
         email.value = '';
         password.value = '';
-        TokenService.saveAuthToken(res.authToken);
-        this.handleLoginSuccess();
+        // TokenService.saveAuthToken(res.authToken);
+        this.handleLoginSuccess(res.user_id);
       })
       .catch(res => {
         this.setState({ error: res.error });

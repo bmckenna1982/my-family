@@ -1,10 +1,12 @@
 import config from '../../config'
-// import TokenService from './token-service'
+import TokenService from './token-services'
 
 const ListsService = {
   getAllLists() {
     return fetch(`${config.API_ENDPOINT}/lists`, {
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
       method: 'GET',
     })
@@ -18,7 +20,8 @@ const ListsService = {
   getList(listId) {
     return fetch(`${config.API_ENDPOINT}/lists/${listId}`, {
       headers: {
-        // 'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
     })
       .then(res =>
@@ -43,6 +46,7 @@ const ListsService = {
     return fetch(`${config.API_ENDPOINT}/lists`, {
       method: 'POST',
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       body: JSON.stringify(list)

@@ -19,7 +19,6 @@ class CalendarMonth extends Component {
   // }
 
   render() {
-    console.log('month')
     const weekdayShort = moment.weekdaysShort()
     let dateObject = moment([]);
 
@@ -65,10 +64,7 @@ class CalendarMonth extends Component {
     };
 
     const getEventsForDay = (day) => {
-      console.log('day', day)
-      console.log('this.context.events', this.context.events)
       let events = this.context.events.filter(event => formatForCompare(event.event_date) === formatForCompare(day))
-      console.log('events', events)
       return events.length
     }
 
@@ -114,9 +110,6 @@ class CalendarMonth extends Component {
       return <div className='calendar-row' key={i}>{d}</div>
     })
 
-
-
-    console.log('weekdayShortName', weekdayShortName)
     return (
       <div className='calendar-page-month calendar-close' id='month' >
         {/* <Header pageTitle='Calendar' /> */}
