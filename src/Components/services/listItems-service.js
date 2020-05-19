@@ -1,5 +1,5 @@
 import config from '../../config'
-// import TokenService from './token-service'
+import TokenService from './token-services'
 
 const ListItemsService = {
   getAllListItems() {

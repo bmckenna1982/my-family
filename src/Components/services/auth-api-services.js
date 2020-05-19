@@ -15,7 +15,7 @@ const AuthApiService = {
         !res.ok ? res.json().then(e => Promise.reject(e)) : res.json()
       )
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res)
         IdleService.registerIdleTimerResets()
 
         TokenService.queueCallbackBeforeExpiry(() => {
@@ -51,7 +51,7 @@ const AuthApiService = {
       }
       )
       .then(res => {
-        TokenService.saveAuthToken(res.authToken)
+        TokenService.saveAuthToken(res)
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()
         })

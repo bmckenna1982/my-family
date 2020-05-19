@@ -35,7 +35,7 @@ class Login extends Component {
       .then(res => {
         email.value = '';
         password.value = '';
-        TokenService.saveAuthToken(res.authToken);
+        // TokenService.saveAuthToken(res.authToken);
         this.handleLoginSuccess(res.user_id);
       })
       .catch(res => {

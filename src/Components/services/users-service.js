@@ -1,10 +1,12 @@
 import config from '../../config'
-// import TokenService from './token-service'
+import TokenService from './token-services'
 
 const UsersService = {
   getAllUsers() {
     return fetch(`${config.API_ENDPOINT}/users`, {
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
       method: 'GET',
     })
@@ -18,6 +20,8 @@ const UsersService = {
   getById(id) {
     return fetch(`${config.API_ENDPOINT}/users/${id}`, {
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
       method: 'GET',
     })

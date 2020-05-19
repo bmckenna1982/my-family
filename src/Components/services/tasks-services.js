@@ -1,10 +1,12 @@
 import config from '../../config'
-// import TokenService from './token-service'
+import TokenService from './token-services'
 
 const TasksService = {
   getAllTasks() {
     return fetch(`${config.API_ENDPOINT}/tasks`, {
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
       method: 'GET',
     })
@@ -18,7 +20,8 @@ const TasksService = {
   getTask(taskId) {
     return fetch(`${config.API_ENDPOINT}/tasks/${taskId}`, {
       headers: {
-        // 'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
       },
     })
       .then(res =>
@@ -31,6 +34,7 @@ const TasksService = {
     return fetch(`${config.API_ENDPOINT}/tasks`, {
       method: 'POST',
       headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       body: JSON.stringify(task)
@@ -45,7 +49,7 @@ const TasksService = {
     return fetch(`${config.API_ENDPOINT}/tasks/${task_id}`, {
       method: 'PATCH',
       headers: {
-        // 'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
       body: JSON.stringify(updatedFields)

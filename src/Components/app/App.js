@@ -209,6 +209,7 @@ class App extends Component {
   }
 
   setCurrentUser = (data) => {
+    console.log('data', data)
     this.setState({
       currentUser: { ...data }
     })

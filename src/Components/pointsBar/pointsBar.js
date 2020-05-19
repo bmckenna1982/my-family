@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import UsersService from '../services/users-service'
 import AppContext from '../context/appContext'
+import TokenService from '../services/token-services'
 class PointsBar extends Component {
 
   static contextType = AppContext
   componentDidMount() {
-    let userId = this.context.currentUser.id
+    let userId = TokenService.getSessionId()
     console.log('userId', userId)
     UsersService.getById(userId)
       .then(res => {
