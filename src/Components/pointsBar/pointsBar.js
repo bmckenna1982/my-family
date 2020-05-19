@@ -5,7 +5,8 @@ class PointsBar extends Component {
 
   static contextType = AppContext
   componentDidMount() {
-    let userId = (this.context.currentUser > 0) ? this.context.currentUser.id : 1
+    let userId = this.context.currentUser.id
+    console.log('userId', userId)
     UsersService.getById(userId)
       .then(res => {
         this.context.setCurrentUser(res)
@@ -13,10 +14,9 @@ class PointsBar extends Component {
   }
 
   renderPointsDisplay = () => {
-    console.log('renderPoints', this.context.currentUser)
     let pointsDisplay = (this.context.currentUser)
       ? <div className='points-status-container'>
-        <div className='points'>Point total: {this.context.currentUser.points}</div>
+        <div className='points'>Point total: {this.context.currentUser.points || 0} </div>
         <div className='leader'>Next tier: 200</div>
       </div>
       : ''

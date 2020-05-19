@@ -15,11 +15,7 @@ class UpcomingTasks extends Component {
   componentDidMount() {
     TasksService.getAllTasks()
       .then(data => {
-        console.log('data', data)
         this.context.setTasks(data)
-        // this.setState({
-        //   tasks: [...data]
-        // })
       })
       .catch(err => {
         this.setState({
@@ -30,7 +26,6 @@ class UpcomingTasks extends Component {
   static contextType = AppContext
 
   render() {
-    console.log('this.context.tasks', this.context.tasks)
     return (
       <section className='upcoming-tasks'>
         <h2>Upcoming Tasks</h2>

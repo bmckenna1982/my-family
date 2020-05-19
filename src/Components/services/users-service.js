@@ -9,7 +9,6 @@ const UsersService = {
       method: 'GET',
     })
       .then(res => {
-        console.log('res', res)
         if (!res.ok) {
           throw new Error(res.statusText)
         }

@@ -26,7 +26,6 @@ const eventDate = (date) => {
 const eventTime = (time) => {
   const timeArr = time.split(':')
   const hour = timeArr[0] % 12
-  console.log('timeArr', timeArr)
   const timePeriod = timeArr[0] > 11 ? 'PM' : 'AM'
   return `${hour}:${timeArr[1]} ${timePeriod}`
 }

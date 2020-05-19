@@ -101,9 +101,6 @@ class App extends Component {
     // event.preventDefault()
     const weekday = extractWeekday(event.event_date)
     const dayOfMonth = extractDayOfMonth(event.event_date)
-    console.log('day', dayOfMonth)
-    console.log('event.target', event)
-    console.log('...this.state.events', ...this.state.events)
     this.setState({
       events: [
         ...this.state.events,
@@ -125,7 +122,6 @@ class App extends Component {
   }
 
   addTask = task => {
-    console.log('task', task)
     this.setState({
       tasks: [
         ...this.state.tasks,
@@ -139,7 +135,6 @@ class App extends Component {
   }
 
   addReward = reward => {
-    console.log('reward', reward)
     this.setState({
       rewards: [
         ...this.state.rewards,
@@ -153,8 +148,6 @@ class App extends Component {
   }
 
   addListItem = (newItem) => {
-    console.log('newItem', newItem)
-    console.log('this.state.lists.id[1]', this.state.lists)
     this.setState({
       listItems: [
         ...this.state.listItems,
@@ -164,10 +157,7 @@ class App extends Component {
   }
 
   toggleListOpen = index => {
-    // index.preventDefault()
-    console.log('index', index)
     const listStatus = this.state.lists.map((list, i) => {
-      console.log('list', list)
       if (i === index) {
         list.open = !list.open
       } else {
@@ -182,7 +172,6 @@ class App extends Component {
   }
 
   openEdit = (click) => {
-    console.log('clicked edit', click.props)
     this.setState({
       showEdit: true,
       selectedTaskIndex: click.props.index
@@ -190,14 +179,12 @@ class App extends Component {
   }
 
   setTasks = (data) => {
-    console.log('state-data', data)
     this.setState({
       tasks: [...data]
     })
   }
 
   setLists = (data) => {
-    console.log('lists-data', data)
     this.setState({
       lists: [...data]
     })
@@ -213,7 +200,6 @@ class App extends Component {
   }
 
   addList = (data) => {
-    console.log('data', data)
     this.setState({
       lists: [
         ...this.state.lists,

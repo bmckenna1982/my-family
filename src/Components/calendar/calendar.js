@@ -21,7 +21,6 @@ class Calendar extends Component {
   static contextType = AppContext
 
   showMonth(showMonth) {
-    console.log('showMonth', showMonth)
     this.setState({ showMonth })
   }
   render() {

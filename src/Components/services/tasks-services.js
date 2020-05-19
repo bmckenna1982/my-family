@@ -28,7 +28,6 @@ const TasksService = {
       )
   },
   postTask(task) {
-    console.log('task', task)
     return fetch(`${config.API_ENDPOINT}/tasks`, {
       method: 'POST',
       headers: {
@@ -42,7 +41,7 @@ const TasksService = {
           : res.json())
   },
   updateTask(task_id, updatedFields) {
-    // console.log('updatedFields', updatedFields)
+
     return fetch(`${config.API_ENDPOINT}/tasks/${task_id}`, {
       method: 'PATCH',
       headers: {
@@ -52,25 +51,11 @@ const TasksService = {
       body: JSON.stringify(updatedFields)
     })
       .then(res => {
-        console.log('res', res)
         return (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : 'res.json()'
       })
   }
-  // getRsvp(gameId) {
-  //   return fetch(`${config.API_ENDPOINT}/tasks/${taskId}/rsvp`, {
-  //     headers: {
-  //       'Authorization': `bearer ${TokenService.getAuthToken()}`,
-  //     },
-  //   })
-  //     .then(res =>
-  //       (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res.json()
-  //     )
-  // },
-
 }
 
 export default TasksService

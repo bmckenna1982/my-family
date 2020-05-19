@@ -36,17 +36,6 @@ class LatestLists extends Component {
       })
 
   }
-  // listsOpen = () => {
-  //   const listsStatus = this.context.lists.map(list => {
-  //     list.open = false
-  //     return list
-  //   }
-  //   )
-  //   console.log('listsStatus', listsStatus)
-  // }
-  // handleClick = () => {
-  //   console.log('click add item')
-  // }
 
   handleChange = event => {
     event.preventDefault()
@@ -66,7 +55,6 @@ class LatestLists extends Component {
   }
 
   render() {
-    console.log('this.context', this.context.lists)
     // const listRender = this.context.lists.map((list, index) => {
     //   let openList = list.open
     //     ? <div>
@@ -87,7 +75,6 @@ class LatestLists extends Component {
                 <FontAwesomeIcon icon={faPlus} />
               </div>
             </div>
-            {console.log('list', list)}
             {this.isOpen(list)}
           </div>
         ))}
