@@ -41,12 +41,12 @@ class FamilyPage extends Component {
     ]
   }
 
-  // componentDidMount() {
-  //   UsersService.getAllUsers(family)
-  //     .then(res => {
-  //       this.context.setUsers()
-  //     })
-  // }
+  componentDidMount() {
+    UsersService.getAllUsers()
+      .then(res => {
+        console.log('res', res)
+      })
+  }
   // getSum = (total, num) => {
   //   return total + Math.round(num)
   // }

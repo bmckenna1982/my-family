@@ -10,8 +10,7 @@ class TaskCheck extends Component {
     //need to also get logged in user and send user_id so points will be added
     const fieldsToUpdate = {
       complete: e.target.checked,
-      completed_date: new Date(),
-      user_id: 1,
+      completed_date: new Date()
     }
     //need to send task id and checked: true
     TasksService.updateTask(taskToUpdateId, fieldsToUpdate)

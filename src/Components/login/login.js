@@ -21,7 +21,7 @@ class Login extends Component {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/home';
     history.push(destination);
-    this.context.setCurrentUser({ id: user_id })
+    // this.context.setCurrentUser({ id: user_id })
   };
 
   handleSubmitJwtAuth = ev => {
@@ -35,8 +35,7 @@ class Login extends Component {
       .then(res => {
         email.value = '';
         password.value = '';
-        // TokenService.saveAuthToken(res.authToken);
-        this.handleLoginSuccess(res.user_id);
+        this.handleLoginSuccess();
       })
       .catch(res => {
         this.setState({ error: res.error });
