@@ -11,7 +11,7 @@ class Nav extends Component {
     }
     return (
       <nav role='navigation' className='nav-list close' id='nav-list'>
-        <NavLink onClick={changeNav} exact to='/'>Home</NavLink>
+        <NavLink onClick={changeNav} exact to='/home'>Home</NavLink>
 
         <NavLink onClick={changeNav} to='/calendar'>Calendar</NavLink>
 
