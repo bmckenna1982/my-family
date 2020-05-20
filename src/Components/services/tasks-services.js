@@ -17,6 +17,22 @@ const TasksService = {
         return res.json()
       })
   },
+  getAllTasksByUser(user_id) {
+    return fetch(`${config.API_ENDPOINT}/users/${user_id}/tasks`, {
+      headers: {
+        'Authorization': `bearer ${TokenService.getAuthToken()}`,
+        'content-type': 'application/json'
+      },
+      method: 'GET',
+    })
+      .then(res => {
+        if (!res.ok) {
+          throw new Error(res.statusText)
+        }
+        return res.json()
+      })
+  },
+
   getTask(taskId) {
     return fetch(`${config.API_ENDPOINT}/tasks/${taskId}`, {
       headers: {
