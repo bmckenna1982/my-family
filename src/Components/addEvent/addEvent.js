@@ -41,7 +41,9 @@ class AddEvent extends Component {
     }
     EventsService.postEvent(newEvent)
       .then(res => {
+        this.setState({ title: '' })
         this.context.addEvent(res)
+        this.props.history.push('/home')
       })
   }
 

@@ -24,13 +24,14 @@ class ListInput extends Component {
   }
 
   handleClick = event => {
-    if (this.state.newItem.legth > 1) {
+    if (this.state.newItem.length > 1) {
       const newListItem = {
         title: this.state.newItem,
         list_id: this.props.list.id
       }
       ListItemsService.postListItem(newListItem)
         .then(res => {
+          this.setState({ newItem: '' })
           this.context.addListItem(res)
         })
     }

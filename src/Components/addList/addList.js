@@ -30,6 +30,7 @@ class AddList extends Component {
     const listToAdd = { title: this.state.newList }
     ListsService.postList(listToAdd)
       .then(res => {
+        this.setState({ newList: '' })
         this.context.addList(res)
       })
   }
