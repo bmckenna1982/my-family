@@ -65,6 +65,10 @@ p + p {
   margin-top: 15px;
 }
 
+p .red {
+  color: #ff0000;
+}
+
 ul {
   list-style: none;
   padding: 0;

@@ -19,7 +19,7 @@ import AddTask from '../addTask/addTask'
 import Rewards from '../rewards/rewards'
 import AddReward from '../addReward/addReward'
 import EditTask from '../editTask/editTask'
-// import LandingPage from '../landingPage/landingPage'
+import LandingPage from '../landingPage/landingPage'
 import TokenService from '../services/token-services';
 import AuthApiService from '../services/auth-api-services';
 import IdleService from '../services/idle-services';
@@ -72,8 +72,9 @@ class App extends Component {
 
   componentDidMount() {
     IdleService.setIdleCallback(this.logoutFromIdle);
-
+    console.log('mounted')
     if (TokenService.hasAuthToken()) {
+      console.log('auth passed')
       IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken();
@@ -248,19 +249,19 @@ class App extends Component {
           <Nav />
           <main role='main'>
             <Switch>
-              {/* <PublicOnlyRoute exact path='/' component={LandingPage} /> */}
-              <Route exact path='/' component={HomePage} />
+              <Route exact path='/' component={LandingPage} />
+              <PrivateRoute exact path='/home' component={HomePage} />
               <PublicOnlyRoute exact path='/log-in' component={Login} />
               <PublicOnlyRoute exact path='/register' component={Register} />
               <PrivateRoute exact path='/calendar' component={Calendar} />
               <PrivateRoute exact path='/tasks' component={TasksPage} />
               <PrivateRoute exact path='/lists' component={ListPage} />
-              <Route exact path='/family' component={FamilyPage} />
-              <Route exact path='/rewards' component={Rewards} />
-              <Route exact path='/add-event' component={AddEvent} />
-              <Route exact path='/add-task' component={AddTask} />
-              <Route exact path='/add-reward' component={AddReward} />
-              <Route exact path='/edit-task' component={EditTask} />
+              <PrivateRoute exact path='/family' component={FamilyPage} />
+              <PrivateRoute exact path='/rewards' component={Rewards} />
+              <PrivateRoute exact path='/add-event' component={AddEvent} />
+              <PrivateRoute exact path='/add-task' component={AddTask} />
+              <PrivateRoute exact path='/add-reward' component={AddReward} />
+              {/* <PrivateRoute exact path='/edit-task' component={EditTask} /> */}
             </Switch>
           </main>
           <footer role='contentinfo'>Footer</footer>

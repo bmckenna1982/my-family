@@ -45,14 +45,15 @@ const AuthApiService = {
       }
     })
       .then(res => {
-        console.log('first res', res)
-          (!res.ok)
+        let results = (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()
+
+        return results
       }
       )
       .then(res => {
-        console.log('then res', res)
+        console.log('second res', res);
         TokenService.saveAuthToken(res)
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()
