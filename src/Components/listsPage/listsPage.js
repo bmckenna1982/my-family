@@ -4,6 +4,7 @@ import List from '../list/list'
 import TaskCheck from '../taskCheck/taskCheck'
 import AddItemLink from '../addItemLink/addItemLink'
 import AddList from '../addList/addList'
+import ListInput from '../listInput/listInput'
 import AppContext from '../context/appContext'
 import ListsService from '../services/lists-service'
 import './listsPage.css'
@@ -49,6 +50,7 @@ class ListsPage extends Component {
         (
           <div className='list-container' key={index}>
             <h2 className='list-name'>{list.title}</h2>
+            <ListInput list={list} />
             <List key={list.title} list={list} />
           </div>
         ))

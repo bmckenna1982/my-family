@@ -17,15 +17,22 @@ class CalendarWeek extends Component {
   }
 
   renderEvent = (day) => {
-    if (day.events) {
-      for (const e of day.events) {
-        return (
-          < div className='calendar-event-container' >
-            <Event title={e.title} time={e.start_time} />
-          </div >
-        )
-      }
-    }
+    console.log('day', day)
+    return day.events.map((event, index) => (
+      < div className='calendar-event-container' >
+        <Event title={event.title} time={event.start_time} />
+      </div >
+    ))
+    // if (day.events) {
+    //   for (const e of day.events) {
+    //     console.log('e', e)
+    //     return (
+    //       < div className='calendar-event-container' >
+    //         <Event title={e.title} time={e.start_time} />
+    //       </div >
+    //     )
+    //   }
+    // }
   }
 
   render() {
@@ -54,7 +61,9 @@ class CalendarWeek extends Component {
                 <div className='calendar-week-day'>{day.dayOfWeek}</div>
                 <div className='calendar-date'>{day.dayOfMonth}</div>
               </div>
-              {this.renderEvent(day)}
+              <div className='calendar-events-wrapper'>
+                {this.renderEvent(day)}
+              </div>
             </div>
           </div>
         ))}
