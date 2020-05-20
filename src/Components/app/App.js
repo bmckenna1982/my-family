@@ -59,7 +59,8 @@ class App extends Component {
       navOpen: false,
       showEdit: false,
       selectedTaskIndex: null,
-      currentUser: {}
+      currentUser: {},
+      members: []
     }
   }
 
@@ -216,6 +217,12 @@ class App extends Component {
     })
   }
 
+  setMembers = (data) => {
+    this.setState({
+      members: [...data]
+    })
+  }
+
   render() {
     const contextValue = {
       events: this.state.events,
@@ -227,6 +234,7 @@ class App extends Component {
       showEdit: this.state.showModal,
       selectedTaskIndex: this.state.selectedTaskIndex,
       currentUser: this.state.currentUser,
+      members: this.state.members,
       addEvent: this.addEvent,
       setEvents: this.setEvents,
       addTask: this.addTask,
@@ -238,7 +246,8 @@ class App extends Component {
       setListItems: this.setListItems,
       addReward: this.addReward,
       openEdit: this.openEdit,
-      setCurrentUser: this.setCurrentUser
+      setCurrentUser: this.setCurrentUser,
+      setMembers: this.setMembers,
     }
 
     return (
