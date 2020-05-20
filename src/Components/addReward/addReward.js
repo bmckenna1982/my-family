@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
 import AppContext from '../context/appContext'
+import RewardsService from '../services/rewards-services'
 
 class AddReward extends Component {
   constructor(props) {
@@ -27,17 +28,26 @@ class AddReward extends Component {
     })
   }
 
-  addReward = event => {
-    event.preventDefault()
-    let reward = this.state
-    this.context.addReward(reward)
+  // addReward = event => {
+  //   event.preventDefault()
+  //   let reward = this.state
+  //   this.context.addReward(reward)
+  // }
+
+  handleSubmit = (e) => {
+    e.preventDefault()
+    const reward = this.state
+    RewardsService.postReward(reward)
+      .then(res => {
+        this.context.addReward(res)
+      })
   }
 
   render() {
     return (
       <div className="addReward">
         <Header pageTitle='Add Reward' />
-        <form className='addReward-form' onSubmit={this.addReward}>
+        <form className='addReward-form' onSubmit={this.handleSubmit}>
           <div>
             <input type="text" name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
           </div>

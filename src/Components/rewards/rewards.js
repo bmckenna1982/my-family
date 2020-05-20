@@ -2,17 +2,60 @@ import React, { Component } from 'react'
 import Header from '../header/header'
 import AddItemLink from '../addItemLink/addItemLink'
 import './rewards.css'
+import RewardsService from '../services/rewards-services'
 
 class Rewards extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showClaimed: false
+      showClaimed: false,
+      rewards: []
     }
+  }
+
+  componentDidMount() {
+    RewardsService.getAllRewards()
+      .then(res => {
+        this.setState({
+          rewards: [...res]
+        })
+      })
   }
 
   showClaimed(showClaimed) {
     this.setState({ showClaimed })
+  }
+
+  renderClaimed = () => {
+    let claimed = this.state.rewards.filter(reward => reward.claimed == true)
+    console.log('this.state.rewards', this.state.rewards)
+    return claimed.map((reward, index) => (
+      <div className='claimed-container' key={index}>
+        <div className='claimed-item'>
+          {reward.title}
+        </div>
+        <div className='claimed-points' >
+          {`${reward.points}pts`}
+        </div>
+        <div className='claimed-date' >
+          {reward.claimed_date}
+        </div>
+      </div>
+    ))
+  }
+
+  renderAvailable = () => {
+    let available = this.state.rewards.filter(reward => reward.claimed != true)
+    return available.map((reward, index) => (
+      <div className='reward-container'>
+        <div className='reward-item'>
+          {reward.title}
+        </div>
+        <div className='reward-points' >
+          {`${reward.points}pts`}
+        </div>
+      </div>
+    ))
   }
 
   render() {
@@ -20,53 +63,17 @@ class Rewards extends Component {
     return (
       <div className='rewards'>
         <Header pageTitle='Rewards' />
-        <AddItemLink itemName='Reward' location='add-reward'/>
+        <AddItemLink itemName='Reward' location='add-reward' />
         <div className='tab-selection'>
           <button className={'bttn rewards-tab ' + (this.state.showClaimed ? '' : 'active')} id='rewards-tab' onClick={() => this.showClaimed(false)}>Rewards</button>
           <button className={'bttn claimed-tab ' + (this.state.showClaimed ? 'active' : '')} id='claimed-tab' onClick={() => this.showClaimed(true)}>Claimed</button>
         </div>
         {this.state.showClaimed
           ? <div className='claimed-list'>
-            <div className='claimed-container'>
-              <div className='claimed-item'>
-                Xbox live
-                </div>
-              <div className='claimed-points' >
-                200pts
-                </div>
-              <div className='claimed-date' >
-                4/25/2020
-              </div>
-            </div>
-            <div className='claimed-container'>
-              <div className='claimed-item'>
-                30 min Tech time
-                </div>
-              <div className='claimed-points' >
-                100pts
-              </div>
-              <div className='claimed-date' >
-                4/25/2020
-              </div>
-            </div>
+            {this.renderClaimed()}
           </div>
           : <div className='rewards-list'>
-            <div className='reward-container'>
-              <div className='reward-item'>
-                Xbox live
-            </div>
-              <div className='reward-points' >
-                200pts
-            </div>
-            </div>
-            <div className='reward-container active'>
-              <div className='reward-item'>
-                30 min Tech time
-            </div>
-              <div className='reward-points' >
-                100pts
-            </div>
-            </div>
+            {this.renderAvailable()}
           </div>
         }
       </div>
