@@ -73,9 +73,7 @@ class App extends Component {
 
   componentDidMount() {
     IdleService.setIdleCallback(this.logoutFromIdle);
-    console.log('mounted')
     if (TokenService.hasAuthToken()) {
-      console.log('auth passed')
       IdleService.registerIdleTimerResets();
       TokenService.queueCallbackBeforeExpiry(() => {
         AuthApiService.postRefreshToken();
