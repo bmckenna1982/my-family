@@ -21,7 +21,7 @@ class Login extends Component {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/home';
     history.push(destination);
-    // this.context.setCurrentUser({ id: user_id })
+    this.context.setLoggedIn(true)
   };
 
   handleSubmitJwtAuth = ev => {

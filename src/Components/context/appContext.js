@@ -11,6 +11,7 @@ const AppContext = React.createContext({
   selectedTaskIndex: null,
   currentUser: {},
   members: [],
+  loggedIn: false,
   addEvent: () => { },
   setEvents: () => { },
   addTask: () => { },
