@@ -1,3 +1,15 @@
 .landing-Page {
   display: block;
 }
+.landing-page-header{
+  height: 518px;
+}
+
+.landing-page-header h1, .landing-page-header p {
+  font-size: 1.5em;
+  padding-bottom: 30px;
+}
+
+.demo { 
+  font-size: 1.5em;
+}

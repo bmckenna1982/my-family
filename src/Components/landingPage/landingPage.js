@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+
 import './landingPage.css'
 
 class LandingPage extends Component {
   render() {
     return (
       <div className='landing-page'>
-        <header role="banner">
+        <header role="banner" className='landing-page-header'>
           <h1>Keep it together with MyFamily.</h1>
           <p>MyFamily keeps your loved ones organized and helps motivate your children with task points and rewards.</p>
-          <button type='button' className='bttn demo'>Explore MyFamily</button>
+          <Link to='/log-in'>
+            <button type='button' className='bttn demo'>Explore MyFamily</button>
+          </Link>
         </header>
         <section>
           <header>
