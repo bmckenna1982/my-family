@@ -60,7 +60,8 @@ class App extends Component {
       showEdit: false,
       selectedTaskIndex: null,
       currentUser: {},
-      members: []
+      members: [],
+      loggedIn: false,
     }
   }
 
@@ -87,6 +88,7 @@ class App extends Component {
   }
 
   logoutFromIdle = () => {
+    this.setCurrentUser('')
     TokenService.clearAuthToken();
     TokenService.clearCallbackBeforeExpiry();
     IdleService.unRegisterIdleResets();
@@ -233,6 +235,7 @@ class App extends Component {
       selectedTaskIndex: this.state.selectedTaskIndex,
       currentUser: this.state.currentUser,
       members: this.state.members,
+      loggedIn: this.state.loggedIn,
       addEvent: this.addEvent,
       setEvents: this.setEvents,
       addTask: this.addTask,
