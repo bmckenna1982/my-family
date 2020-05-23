@@ -14,6 +14,12 @@ class Register extends Component {
   state = {
     error: null,
     newFamily: false,
+    family: '',
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    confirm_password: '',
     family: ''
   };
 
@@ -36,28 +42,11 @@ class Register extends Component {
   }
 
   familyNameInUse = (name) => {
-    !!this.state.families.filter(family => family.family_name = name)
+    return !!this.state.families.filter(family => family.family_name = name)
   }
 
   handleSubmit = ev => {
     ev.preventDefault()
-
-    //test for creating a new family or adding a member to existing family
-    // if(!this.state.newFamily) {
-
-    //   AuthApiService.postUser()
-    // }
-    // FamilyService.getAllFamilies()
-    //   .then(families => {
-    //     this.setState({ families })
-    //     if(families.filter(family => family.family_name === this.state.family)) {
-    //       console.log('family found')
-    //   } else {
-    //     console.log('family not found')
-
-    //   }
-
-    //   })
 
     const { first_name, last_name, email, password, family } = ev.target
     const newUser = {
@@ -73,19 +62,41 @@ class Register extends Component {
         .then(res =>
           res.newUser = { ...newUser, family: res.id }
         )
+        .then(res => {
+          if (!res) {
+            return res.status(404).json({
+              error: { message: `Family doesn't exist` }
+            })
+          }
+          AuthApiService.postUser(res)
+            .then(user => {
+              first_name.value = ''
+              last_name.value = ''
+              email.value = ''
+              password.value = ''
+              family.value = ''
+              this.handleRegistrationSuccess()
+            })
+        })
+        .catch(err => {
+          this.setState({ error: err.error })
+        })
+    } else {
+      //post user needs to check that the family exists and what its id is
+      AuthApiService.postUser(newUser)
+        .then(user => {
+          first_name.value = ''
+          last_name.value = ''
+          email.value = ''
+          password.value = ''
+          family.value = ''
+          this.handleRegistrationSuccess()
+        })
+        .catch(res => {
+          this.setState({ error: res.error })
+        })
     }
-    AuthApiService.postUser(newUser)
-      .then(user => {
-        first_name.value = ''
-        last_name.value = ''
-        email.value = ''
-        password.value = ''
-        family.value = ''
-        this.handleRegistrationSuccess()
-      })
-      .catch(res => {
-        this.setState({ error: res.error })
-      })
+    // 
 
   }
 
