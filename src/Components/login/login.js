@@ -20,9 +20,13 @@ class Login extends Component {
   handleLoginSuccess = (user_id) => {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/home';
-    history.push(destination);
-    this.context.setLoggedIn(true)
-  };
+    history.push(destination)
+    // this.context.setLoggedIn(true)
+    //   .then(() => {
+    //     console.log('logged in')
+    //     history.push(destination);
+    //   })
+  }
 
   handleSubmitJwtAuth = ev => {
     ev.preventDefault();
