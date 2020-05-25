@@ -49,7 +49,7 @@ class Register extends Component {
     ev.preventDefault()
 
     const { first_name, last_name, email, password, family } = ev.target
-    const newUser = {
+    let newUser = {
       first_name: first_name.value,
       last_name: last_name.value,
       email: email.value.toLowerCase(),
@@ -58,6 +58,7 @@ class Register extends Component {
     }
     this.setState({ error: null })
     if (this.state.newFamily) {
+      console.log('new family')
       FamilyService.postFamily({ family_name: newUser.family })
         .then(res =>
           res.newUser = { ...newUser, family: res.id }
@@ -65,9 +66,10 @@ class Register extends Component {
         .then(res => {
           if (!res) {
             return res.status(404).json({
-              error: { message: `Family doesn't exist` }
+              error: { message: `Family already exists` }
             })
           }
+          console.log('res', res)
           AuthApiService.postUser(res)
             .then(user => {
               first_name.value = ''
@@ -77,35 +79,52 @@ class Register extends Component {
               family.value = ''
               this.handleRegistrationSuccess()
             })
+            .catch(err => {
+              this.setState({ error: err.error })
+            })
         })
         .catch(err => {
           this.setState({ error: err.error })
         })
     } else {
       //post user needs to check that the family exists and what its id is
-      AuthApiService.postUser(newUser)
-        .then(user => {
-          first_name.value = ''
-          last_name.value = ''
-          email.value = ''
-          password.value = ''
-          family.value = ''
-          this.handleRegistrationSuccess()
+      //then place the id for family value before post
+      FamilyService.getAllFamilies()
+        .then(families =>
+          families.filter(family => family.family_name === newUser.family)[0]
+        )
+        .then(res => {
+          console.log('res', res)
+          if (!res) {
+            return res.status(404).json({
+              error: { message: `Family doesn't exist` }
+            })
+          }
+          newUser = { ...newUser, family: res.id }
+          AuthApiService.postUser(newUser)
+            .then(user => {
+              first_name.value = ''
+              last_name.value = ''
+              email.value = ''
+              password.value = ''
+              family.value = ''
+              this.handleRegistrationSuccess()
+            })
+            .catch(res => {
+              this.setState({ error: res.error })
+            })
         })
-        .catch(res => {
-          this.setState({ error: res.error })
-        })
+      //Auto login here after registration?
     }
-    // 
-
   }
 
   render() {
     const { error } = this.state;
+    console.log('error', error)
     return (
       <section className="registration">
         <form className='register-form' onSubmit={this.handleSubmit}>
-          <div role='alert'>{error && <p className='red'>{error}</p>}</div>
+          <div role='alert'>{error && <p className='red'>{error.message}</p>}</div>
           {/* <legend>Register using your family code</legend> */}
           <div>
             <input type="checkbox" name='create-checkbox' id='create-checkbox' onChange={this.handleChange} checked={this.state.newFamily} />
