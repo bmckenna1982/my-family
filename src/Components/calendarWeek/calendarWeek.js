@@ -19,7 +19,7 @@ class CalendarWeek extends Component {
   renderEvent = (day) => {
     console.log('day', day)
     return day.events.map((event, index) => (
-      < div className='calendar-event-container' >
+      < div className='calendar-event-container' key={index}>
         <Event title={event.title} time={event.start_time} />
       </div >
     ))

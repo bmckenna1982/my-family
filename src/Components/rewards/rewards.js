@@ -47,7 +47,7 @@ class Rewards extends Component {
   renderAvailable = () => {
     let available = this.state.rewards.filter(reward => reward.claimed != true)
     return available.map((reward, index) => (
-      <div className='reward-container'>
+      <div className='reward-container' key={index}>
         <div className='reward-item'>
           {reward.title}
         </div>
