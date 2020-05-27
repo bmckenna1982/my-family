@@ -2,6 +2,12 @@
   font-size: 0.8em;
 }
 
+.calendar-date-container {
+  width: 60px;
+}
+
 .calendar-date {
   font-size: 1.2em;
 }
+
+

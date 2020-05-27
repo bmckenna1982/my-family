@@ -5,3 +5,7 @@
   padding: 45px 15px;
   height: calc(100vh - 45px);
 }
+
+.red {
+  color: #ff0000;
+}

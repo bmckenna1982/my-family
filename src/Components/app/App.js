@@ -274,7 +274,7 @@ class App extends Component {
               {/* <PrivateRoute exact path='/edit-task' component={EditTask} /> */}
             </Switch>
           </main>
-          <footer role='contentinfo'>Footer</footer>
+          {/* <footer role='contentinfo'>Footer</footer> */}
         </div>
       </AppContext.Provider >
     );

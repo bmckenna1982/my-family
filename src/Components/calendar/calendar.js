@@ -31,9 +31,9 @@ class Calendar extends Component {
     return (
       <div className='calendar'>
         <header className='calendar-month' role='banner'>
-          <h1>April</h1>
-          <AddItemLink location='/add-event' itemName='Event' />
+          <h1>{extractMonth(new Date())}</h1>
         </header>
+        <AddItemLink location='/add-event' itemName='Event' />
         <div className='tab-selection'>
           {/* instead of tab make it two divs one says view week one says view month
           each sets the close to the other view */}

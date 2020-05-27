@@ -31,7 +31,7 @@ class UpcomingTasks extends Component {
         <h2>Upcoming Tasks</h2>
         <AddItemLink location='/add-task' itemName='Task' />
         <div className='tasks-container'>
-          {this.context.tasks.slice(0, 5).map((task, index) => (
+          {this.context.tasks.filter(task => task.complete === false).slice(0, 5).map((task, index) => (
             <Task key={task.id} title={task.title} points={task.points} checked={task.complete} taskId={task.id} index={index} />
           ))
           }
