@@ -1,17 +1,19 @@
+.rewards {
+  min-height: 520px;
+  background-color: #fff;
+}
 .reward-container{
   display: flex;
   justify-content: space-between;  
   padding: 10px;
   border-left: 5px solid rgba(10,129,209, .5); 
+  border-bottom: 1px solid #999;
 }
 
-.rewards-list > .active {
+.available {
   border-left: 5px solid rgba(10,129,209, 1); 
 }
 
-.claimed-container  {
-  display: flex;
-  justify-content: space-between;  
-  padding: 10px;
+.claimed  {
   border-left: 5px solid rgba(10,129,209, 1); 
 }

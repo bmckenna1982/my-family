@@ -1,5 +1,7 @@
 .calendar {
   height: 100%;
+  background-color: #fff;
+  padding: 10px;
 }
 
 .calendar-wrapper {
@@ -16,7 +18,7 @@
 .calendar-day-container {
   display: flex;
   padding: 5px 10px;
-  background-color: #eee;
+  /* background-color: #eee; */
   text-align: left; 
   border-bottom: 1px solid #111;
 }
@@ -31,6 +33,12 @@
 
 .calendar-event-container {
   flex: 2;
-  font-size: 0.7em;
+  font-size: 1em;
   margin: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  .tab-selection .bttn {
+    font-size: 1.2em;
+  }
 }

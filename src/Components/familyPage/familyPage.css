@@ -1,13 +1,9 @@
-.family-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* .family-page {
   min-height: calc(100vh - 45px);
-}
+} */
 
 .family-member {
   display: flex;  
-  width: 100%;
   position: relative;
   padding: 5px 0;
 }
@@ -21,7 +17,7 @@
   width: 65px;
 }
 
-.family-member:nth-child(even):before {
+/* .family-member:nth-child(even):before {
   content: '';
   position: absolute;
   width: 100%;
@@ -29,7 +25,7 @@
   background: black; 
   top: 100%;
   left: 0;
-}
+} */
 
 .points-history {
   flex: 2;

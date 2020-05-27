@@ -3,8 +3,9 @@
   }
 
 .App {
-  height: 100vh;
+  /* height: 100vh; */
   position: relative;
+  background-color: #eee;
 }
 
 body {
@@ -20,10 +21,9 @@ body {
   flex-direction: column;
 }
 
-main {
-  /* flex: 1; */
-  min-height: calc(100vh - 45px);
-}
+/* main {  
+  min-height: 550px;
+} */
 
 footer {
   padding: 1% 10px;
@@ -34,10 +34,14 @@ footer {
 
 header {
   padding: 45px 15px 0;
+  color: rgba(8,88,112,1);
+  background-color: #fff;
+  margin: 5px;
+  font-family: 'Pacifico', cursive;
 }
 
-header h1 {
-  margin-bottom: 0;
+h1, h2 {
+  margin: 0 0 10px 0;
 }
 
 .points-status-container {
@@ -49,12 +53,13 @@ header h1 {
 section {
   min-height: 200px;
   padding: 30px 0;
-  /* background-color: #bbb; */
+  background-color: #fff;
+  margin: 5px;
 }
 
-.home-page section:nth-child(odd) {
+/* .home-page section:nth-child(odd) {
   background-color: #eee;
-}
+} */
 
 p {
   margin: 0 auto;
@@ -74,8 +79,13 @@ ul {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: rgba(8,88,112,1);
+}
 .app-name {
-  font-size: 1.5em;
+  font-size: 1.5em; 
+  padding: 1% 2%;
 }
 
 .upcoming-events h2 {
@@ -165,10 +175,18 @@ legend {
   background: linear-gradient(0deg, rgba(5,52,66,1) 0%, rgba(8,88,112,1) 25%, rgba(11,129,164,1) 100%);
   border: none;  
   border-radius: 5px;
-  color: #eee;
-  padding: 5px;
+  color: #eee;  
+  padding: 5px 10px;
   text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;  
+  text-shadow:0px 1px 0px #3d768a;  
+   
+}
+
+.log-in-form .bttn {
+  font-size: 1.2em;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 20px;
 }
 
 .week-tab, .month-tab {
@@ -191,4 +209,26 @@ legend {
   position:relative;
   top:1px;
   border: none;
+}
+
+@media only screen and (min-width: 768px) {
+  h1, h2 {
+    padding: 20px 0;
+  }
+
+  main {
+    font-size: 1.2em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  main {
+    width: 85%;
+    margin-left: 15%;    
+    font-size: 1.2em;    
+  } 
+
+  section {
+    padding: 0 10px;
+  }
 }

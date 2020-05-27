@@ -3,6 +3,8 @@ import Header from '../header/header'
 import AppContext from '../context/appContext'
 import RewardsService from '../services/rewards-services'
 
+import './addReward.css'
+
 class AddReward extends Component {
   constructor(props) {
     super(props)
@@ -45,9 +47,9 @@ class AddReward extends Component {
 
   render() {
     return (
-      <div className="addReward">
+      <div className="add-reward">
         <Header pageTitle='Add Reward' />
-        <form className='addReward-form' onSubmit={this.handleSubmit}>
+        <form className='add-reward-form' onSubmit={this.handleSubmit}>
           <div>
             <input type="text" name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
           </div>

@@ -64,7 +64,7 @@ class Rewards extends Component {
     let claimed = this.state.rewards.filter(reward => reward.claimed == true)
     console.log('this.state.rewards', this.state.rewards)
     return claimed.map((reward, index) => (
-      <div className='claimed-container' key={index}>
+      <div className='reward-container claimed' key={index}>
         <div className='claimed-item'>
           {reward.title}
         </div>
@@ -81,7 +81,7 @@ class Rewards extends Component {
   renderAvailable = () => {
     let available = this.state.rewards.filter(reward => reward.claimed != true)
     return available.map((reward, index) => (
-      <div className='reward-container' key={index} onClick={() => this.claimReward(reward)}>
+      <div className={`reward-container ${(reward.points < this.context.currentUser.points) ? 'available' : ''}`} key={index} onClick={() => this.claimReward(reward)}>
         <div className='reward-item'>
           {reward.title}
         </div>
@@ -102,18 +102,20 @@ class Rewards extends Component {
         <PointsBar />
         <ClaimReward show={this.state.show} reward={this.state.selectedReward} hide={this.hideModal} />
         <div role='alert'>{error && <p className='red'>{error.message}</p>}</div>
-        <div className='tab-selection'>
-          <button className={'bttn rewards-tab ' + (this.state.showClaimed ? '' : 'active')} id='rewards-tab' onClick={() => this.showClaimed(false)}>Rewards</button>
-          <button className={'bttn claimed-tab ' + (this.state.showClaimed ? 'active' : '')} id='claimed-tab' onClick={() => this.showClaimed(true)}>Claimed</button>
-        </div>
-        {this.state.showClaimed
-          ? <div className='claimed-list'>
-            {this.renderClaimed()}
+        <section className='rewards-container'>
+          <div className='tab-selection'>
+            <button className={'bttn rewards-tab ' + (this.state.showClaimed ? '' : 'active')} id='rewards-tab' onClick={() => this.showClaimed(false)}>Rewards</button>
+            <button className={'bttn claimed-tab ' + (this.state.showClaimed ? 'active' : '')} id='claimed-tab' onClick={() => this.showClaimed(true)}>Claimed</button>
           </div>
-          : <div className='rewards-list'>
-            {this.renderAvailable()}
-          </div>
-        }
+          {this.state.showClaimed
+            ? <div className='claimed-list'>
+              {this.renderClaimed()}
+            </div>
+            : <div className='rewards-list'>
+              {this.renderAvailable()}
+            </div>
+          }
+        </section>
       </div>
     )
   }

@@ -82,9 +82,9 @@ class FamilyPage extends Component {
     console.log('this.context.members', this.state.members)
     return (
       <div className='family-page'>
-        <Header pageTitle='Family Page' />
+        <Header pageTitle='Family Leaders' />
         {this.state.members.map((member, index) => (
-          <div className='family-member first-place' key={index}>
+          <section className='family-member' key={index}>
             <div className='member-container'>
               <div className='member-image-container'>
                 <img className='member-image' src='https://my-family-app.s3.us-east-2.amazonaws.com/family-boy.svg' alt='cartoon boy' />
@@ -101,7 +101,7 @@ class FamilyPage extends Component {
                 </div>
               )}
             </div> */}
-          </div>
+          </section>
         ))}
 
       </div>

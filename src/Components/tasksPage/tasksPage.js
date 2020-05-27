@@ -31,7 +31,7 @@ class TasksPage extends Component {
         <Header pageTitle='Tasks' />
         <AddItemLink location='/add-task' itemName='Task' />
         <PointsBar />
-        <div className='tasks-list'>
+        <section className='tasks-list'>
           <div className='tasks-container'>
             {this.context.tasks.map((task, index) => (
               // <Task key={task.title} title={task.title} points={task.points} checked='task.checked' index={index} />
@@ -40,7 +40,7 @@ class TasksPage extends Component {
             }
 
           </div>
-        </div>
+        </section>
         {/* <EditTask show={this.context.showEdit} taskIndex={this.context.selectedTaskIndex} /> */}
       </div>
     )

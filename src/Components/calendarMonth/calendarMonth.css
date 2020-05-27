@@ -45,7 +45,7 @@
 
 .calendar-row {
   display: flex;
-  height: 17vw;
+  height: 11.5vh;
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -78,4 +78,18 @@
 .today .event-notification {
   color: rgba(8,88,112,1);
   background-color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  .event-notification {
+    height: 1.1em;
+    width: 1.1em;
+    line-height: 1.1em;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .calendar-month-day {  
+    border-radius: 10%;
+  }
 }

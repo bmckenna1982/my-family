@@ -21,10 +21,6 @@ nav a {
   color: #eee;
 }
 
-.app-name {
-  padding: 1% 5px;
-}
-
 /* .nav-list {
   
   display: flex;
@@ -55,4 +51,14 @@ nav a {
   background-color: rgba(10,129,209, .5);
   color: rgba(35, 44, 51, 1);
   border-left: 5px solid #eee;
+}
+
+@media only screen and (min-width: 1024px) {
+  .nav-list {
+    width: 15%;
+    padding-top: 70px;
+  }
+  .hamburger {
+    display: none;
+  }
 }

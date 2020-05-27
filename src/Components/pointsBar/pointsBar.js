@@ -2,16 +2,24 @@ import React, { Component } from 'react'
 import UsersService from '../services/users-service'
 import AppContext from '../context/appContext'
 import TokenService from '../services/token-services'
+import PointsService from '../services/points-service'
 class PointsBar extends Component {
 
   static contextType = AppContext
   componentDidMount() {
+
     let userId = TokenService.getSessionId()
     console.log('userId', userId)
     UsersService.getById(userId)
-      .then(res => {
-        this.context.setCurrentUser(res)
+      .then(user => {
+        PointsService.getPointsByUser()
+          .then(userPoints => {
+            user.points = userPoints.points
+            this.context.setCurrentUser(user)
+          })
+        // this.context.setCurrentUser(res)
       })
+
   }
 
   renderPointsDisplay = () => {

@@ -48,11 +48,11 @@ class ListsPage extends Component {
     const listsDisplay = this.context.lists[0]
       ? this.context.lists.map((list, index) =>
         (
-          <div className='list-container' key={index}>
+          <section className='list-container' key={index}>
             <h2 className='list-name'>{list.title}</h2>
             <ListInput list={list} />
             <List key={list.title} list={list} />
-          </div>
+          </section>
         ))
       : ''
     return listsDisplay
@@ -68,7 +68,7 @@ class ListsPage extends Component {
   handleClick = (e) => {
     e.preventDefault()
     this.setState({
-      createOpen: true
+      createOpen: !this.state.createOpen
     })
   }
 
