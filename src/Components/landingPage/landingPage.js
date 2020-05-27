@@ -18,22 +18,29 @@ class LandingPage extends Component {
           <header>
             <h2>Family Calendar</h2>
           </header>
-          <img src='https://my-family-app.s3.us-east-2.amazonaws.com/calendarWeek.PNG' alt='calendar screenshot' />
+          <img className='screenshot' src='https://my-family-app.s3.us-east-2.amazonaws.com/calendarWeek.PNG' alt='calendar screenshot' />
           <p>Keep everyone in sync and get everyone where they need to be with an integrated calendar for all family members</p>
         </section>
         <section>
           <header>
             <h2>Rewarding tasks system</h2>
           </header>
-          <p>[<em>placeholder for screenshot of to do list</em>]</p>
+          <img className='screenshot' src='https://my-family-app.s3.us-east-2.amazonaws.com/tasks.PNG' alt='tasks screenshot' />
           <p>Keep everyone motivated to get things done by awarding points for completing tasks.</p>
         </section>
         <section>
           <header>
             <h2>Synced lists</h2>
           </header>
-          <p>[<em>placeholder for screenshot of shopping lists</em>]</p>
-          <p>Synced lists for creating shopping lists, school supply lists or anything</p>
+          <img className='screenshot' src='https://my-family-app.s3.us-east-2.amazonaws.com/lists.PNG' alt='lists screenshot' />
+          <p>Synced lists with direct add action for quickly jotting down things as you need them</p>
+        </section>
+        <section>
+          <header>
+            <h2>Claim Rewards</h2>
+          </header>
+          <img className='screenshot' src='https://my-family-app.s3.us-east-2.amazonaws.com/rewards.PNG' alt='rewards screenshot' />
+          <p>Available rewards listed to work towards or claim</p>
         </section>
       </div>
     )
