@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
 import ListCheck from '../listCheck/listCheck'
-import ListInput from '../listInput/listInput'
 import AppContext from '../context/appContext'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import './list.css'
-import ListItemsService from '../services/listItems-service'
 
 class List extends Component {
   constructor(props) {
@@ -19,7 +15,6 @@ class List extends Component {
       ],
       id: null,
       listItems: [],
-      // listItems: [],
       open: false
     }
   }
@@ -41,7 +36,6 @@ class List extends Component {
 
   render() {
     return (
-      // <div>{this.props.list.title}</div>
       <div className={'list-container ' + (this.state.open ? 'open' : '')}>
         {this.renderList()}
       </div>

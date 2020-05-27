@@ -9,7 +9,6 @@ class PointsBar extends Component {
   componentDidMount() {
 
     let userId = TokenService.getSessionId()
-    console.log('userId', userId)
     UsersService.getById(userId)
       .then(user => {
         PointsService.getPointsByUser()
@@ -17,7 +16,6 @@ class PointsBar extends Component {
             user.points = userPoints.points
             this.context.setCurrentUser(user)
           })
-        // this.context.setCurrentUser(res)
       })
 
   }

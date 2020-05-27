@@ -4,7 +4,6 @@ import Task from '../task/task'
 import AppContext from '../context/appContext'
 import AddItemLink from '../addItemLink/addItemLink'
 import PointsBar from '../pointsBar/pointsBar'
-import EditTask from '../editTask/editTask'
 
 import './tasksPage.css'
 import TasksService from '../services/tasks-services'
@@ -34,7 +33,6 @@ class TasksPage extends Component {
         <section className='tasks-list'>
           <div className='tasks-container'>
             {this.context.tasks.map((task, index) => (
-              // <Task key={task.title} title={task.title} points={task.points} checked='task.checked' index={index} />
               <Task key={task.id} title={task.title} points={task.points} checked={task.complete} taskId={task.id} index={index} />
             ))
             }

@@ -12,8 +12,6 @@
 .event-day {
   max-width: 70px;
   text-align: left;
-  /* flex: 1;
-  font-size: 1.5em;  */
 }
 
 @media only screen and (min-width: 1024px) {

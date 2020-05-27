@@ -6,9 +6,6 @@ import TokenService from '../services/token-services'
 import AppContext from '../context/appContext'
 
 class ClaimReward extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   static contextType = AppContext
   handleSubmit = (e) => {
@@ -17,18 +14,15 @@ class ClaimReward extends Component {
     const claimed_date = new Date()
     const claimed = true
     const updateFields = { id, title, points, claimed, claimed_date }
-    console.log('updateFields', updateFields)
     RewardsService.updateReward(id, updateFields)
       .then(() => {
         let userId = TokenService.getSessionId()
         UsersService.getById(userId)
           .then(res => {
-            console.log('res points', res)
             this.context.setCurrentUser(res)
             this.props.hide()
           })
       })
-    // console.log('submit')
   }
 
   render() {

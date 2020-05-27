@@ -30,12 +30,6 @@ class AddReward extends Component {
     })
   }
 
-  // addReward = event => {
-  //   event.preventDefault()
-  //   let reward = this.state
-  //   this.context.addReward(reward)
-  // }
-
   handleSubmit = (e) => {
     e.preventDefault()
     const reward = this.state
@@ -47,14 +41,14 @@ class AddReward extends Component {
 
   render() {
     return (
-      <div className="add-reward">
+      <div className='add-reward'>
         <Header pageTitle='Add Reward' />
         <form className='add-reward-form' onSubmit={this.handleSubmit}>
           <div>
-            <input type="text" name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
+            <input type='text' name='title' id='title' placeholder='Title' onChange={this.handleTitleChange} value={this.state.title} />
           </div>
           <div>
-            <input type="text" name='points' id='points' placeholder='Point value' onChange={this.handlePointsChange} value={this.state.points} />
+            <input type='text' name='points' id='points' placeholder='Point value' onChange={this.handlePointsChange} value={this.state.points} />
           </div>
           <button className='bttn' type='submit' >Add Reward</button>
         </form>

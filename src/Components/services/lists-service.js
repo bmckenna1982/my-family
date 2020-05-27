@@ -30,18 +30,6 @@ const ListsService = {
           : res.json()
       )
   },
-  // getRecentLists() {
-  //   return fetch(`${config.API_ENDPOINT}/lists/upcoming`, {
-  //     headers: {
-  //       // 'Authorization': `bearer ${TokenService.getAuthToken()}`,
-  //     },
-  //   })
-  //     .then(res =>
-  //       (!res.ok)
-  //         ? res.json().then(e => Promise.reject(e))
-  //         : res.json()
-  //     )
-  // },
   postList(list) {
     return fetch(`${config.API_ENDPOINT}/lists`, {
       method: 'POST',

@@ -7,16 +7,11 @@ import './editTask.css'
 class EditTask extends Component {
   static contextType = AppContext
   render() {
-    //commented out below code, may be reused for making modal component
-    // if(!this.props.show) {  
-    //   return null
-    // }
     const selectedTask = (this.context.tasks[this.context.selectedTaskIndex] || 'Edit Task')
-    console.log('selectedTask', selectedTask)
+
     return (
       <div className='edit-task' >
         <Header pageTitle={selectedTask.title} />
-        {/* <div className='task-title'> Task title here</div> */}
         <div className='family-members'>
           <div className='completed-by'>completed by</div>
           <div className='member-image-container'>

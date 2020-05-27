@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import AddItemLink from '../addItemLink/addItemLink'
 import AppContext from '../context/appContext'
 import ListInput from '../listInput/listInput'
 import List from '../list/list'
@@ -55,14 +54,6 @@ class LatestLists extends Component {
   }
 
   render() {
-    // const listRender = this.context.lists.map((list, index) => {
-    //   let openList = list.open
-    //     ? <div>
-    //         <ListInput listName={list.name} />
-    //         <List list={list} />
-    //       </div>
-    //     : ''
-    // })
 
     return (
       <section className='active-list'>

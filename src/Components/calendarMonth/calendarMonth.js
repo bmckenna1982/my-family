@@ -7,16 +7,6 @@ import './calendarMonth.css'
 
 class CalendarMonth extends Component {
   static contextType = AppContext
-  // renderNotification = (events) => {
-  //   const eventsThisMonth = this.context.events.filter(event => formatForCompare(event.event_date) === formatForCompare(new Date()))
-
-  //   const notificationDisplay = 
-  //   return (
-  //     <div className='event-notification'> 
-  //       <div className='events--notification-count'>2</div>
-  //     </div>
-  //   )
-  // }
 
   render() {
     const weekdayShort = moment.weekdaysShort()
@@ -32,8 +22,8 @@ class CalendarMonth extends Component {
 
     const firstDayOfMonth = () => {
       let firstDay = moment(dateObject)
-        .startOf("month")
-        .format("d");
+        .startOf('month')
+        .format('d');
       return firstDay;
     }
 
@@ -60,7 +50,7 @@ class CalendarMonth extends Component {
     }
 
     const getCurrentDay = () => {
-      return moment(dateObject).format("D");
+      return moment(dateObject).format('D');
     };
 
     const getEventsForDay = (day) => {
@@ -72,7 +62,7 @@ class CalendarMonth extends Component {
     const currentMonth = moment([]).format('MMMM')
     const daysInMonth = []
     for (let d = 1; d < moment().daysInMonth(currentMonth); d++) {
-      let currentDay = d == getCurrentDay() ? "today" : "";
+      let currentDay = d == getCurrentDay() ? 'today' : '';
       let date = `${moment([]).format('YYYY')}-${moment([]).format('MMMM')}-${d}`
       let eventsCount = getEventsForDay(date) > 0
         ? <div className='event-notification'>
@@ -112,7 +102,6 @@ class CalendarMonth extends Component {
 
     return (
       <div className='calendar-page-month calendar-close' id='month' >
-        {/* <Header pageTitle='Calendar' /> */}
         <div className='calendar-month-view'>
           <div className='calendar-header-container'> {weekdayShortName} </div>
           <div className='calendar-body' >{daysinmonth}</div>

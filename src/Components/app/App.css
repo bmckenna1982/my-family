@@ -2,14 +2,13 @@
     box-sizing: border-box;
   }
 
-.App {
-  /* height: 100vh; */
+.App {  
   position: relative;
   background-color: #eee;
 }
 
 body {
-  font-family: "Open Sans",
+  font-family: 'Open Sans',
   sans-serif;
   font-size: 20px;
   color: #444;
@@ -20,10 +19,6 @@ body {
   min-height: 100vh;
   flex-direction: column;
 }
-
-/* main {  
-  min-height: 550px;
-} */
 
 footer {
   padding: 1% 10px;
@@ -56,10 +51,6 @@ section {
   background-color: #fff;
   margin: 5px;
 }
-
-/* .home-page section:nth-child(odd) {
-  background-color: #eee;
-} */
 
 p {
   margin: 0 auto;
@@ -96,14 +87,6 @@ a {
   margin-bottom: 15px;
 }
 
-/* .event-time {
-  flex: 1;
-} */
-
-/* .event-title {
-  flex: 1;
-} */
-
 legend {
   width: 100%;
 }
@@ -133,18 +116,10 @@ legend {
   align-items: center;
 }
 
-
-
 .task-check {
   width: 30px;
   height: 30px;  
 }
-
-
-
-/* .point-value {
-  padding-left: 20px;
-} */
 
 .due-date {
   text-align: left;  
@@ -198,7 +173,6 @@ legend {
 	position:relative;
   top:1px;
   border: none;
-  /* font-size: .9em;   */
   -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
      -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
           box-shadow: inset 0px 0px 5px #c1c1c1;

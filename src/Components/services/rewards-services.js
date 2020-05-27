@@ -17,22 +17,6 @@ const RewardsService = {
         return res.json()
       })
   },
-  // getAllRewardsByUser(user_id) {
-  //   return fetch(`${config.API_ENDPOINT}/users/${user_id}/rewards`, {
-  //     headers: {
-  //       'Authorization': `bearer ${TokenService.getAuthToken()}`,
-  //       'content-type': 'application/json'
-  //     },
-  //     method: 'GET',
-  //   })
-  //     .then(res => {
-  //       if (!res.ok) {
-  //         throw new Error(res.statusText)
-  //       }
-  //       return res.json()
-  //     })
-  // },
-
   getReward(rewardId) {
     return fetch(`${config.API_ENDPOINT}/rewards/${rewardId}`, {
       headers: {

@@ -21,16 +21,6 @@ nav a {
   color: #eee;
 }
 
-/* .nav-list {
-  
-  display: flex;
-  
-  
-  position: fixed;  
-  top: 0;
-  left: 0;
-} */
-
 .close {
   width: 0;
   padding: 0;
@@ -38,7 +28,6 @@ nav a {
 }
 
 .nav-list.close .nav-item {
-  /* display: none; */
   opacity: 0;
 }
 

@@ -5,7 +5,6 @@ class Hamburger extends Component {
   render() {
     function changeNav(e) {
       e.preventDefault()
-      // e.target.classList.toggle('open')
       document.querySelector('#hamburger').classList.toggle('open')
       document.querySelector('#nav-list').classList.toggle('close')
     }

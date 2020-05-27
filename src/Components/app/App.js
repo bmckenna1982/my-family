@@ -18,7 +18,6 @@ import AddEvent from '../addEvent/addEvent'
 import AddTask from '../addTask/addTask'
 import Rewards from '../rewards/rewards'
 import AddReward from '../addReward/addReward'
-import EditTask from '../editTask/editTask'
 import LandingPage from '../landingPage/landingPage'
 import TokenService from '../services/token-services';
 import AuthApiService from '../services/auth-api-services';
@@ -26,12 +25,7 @@ import IdleService from '../services/idle-services';
 import './App.css';
 
 import AppContext from '../context/appContext'
-import { extractWeekday, extractDayOfMonth } from '../utils/utils'
-import dataStore from '../../data/dataStore'
 import './App.css'
-
-
-
 
 class App extends Component {
   constructor(props) {
@@ -100,9 +94,6 @@ class App extends Component {
   }
 
   addEvent = (event) => {
-    // event.preventDefault()
-    const weekday = extractWeekday(event.event_date)
-    const dayOfMonth = extractDayOfMonth(event.event_date)
     this.setState({
       events: [
         ...this.state.events,
@@ -211,7 +202,6 @@ class App extends Component {
   }
 
   setCurrentUser = (data) => {
-    console.log('data', data)
     this.setState({
       currentUser: { ...data }
     })
@@ -253,7 +243,7 @@ class App extends Component {
 
     return (
       <AppContext.Provider value={contextValue} >
-        <div className="App">
+        <div className='App'>
           <TopBar />
           <Hamburger />
           <Nav />
@@ -271,10 +261,8 @@ class App extends Component {
               <PrivateRoute exact path='/add-event' component={AddEvent} />
               <PrivateRoute exact path='/add-task' component={AddTask} />
               <PrivateRoute exact path='/add-reward' component={AddReward} />
-              {/* <PrivateRoute exact path='/edit-task' component={EditTask} /> */}
             </Switch>
           </main>
-          {/* <footer role='contentinfo'>Footer</footer> */}
         </div>
       </AppContext.Provider >
     );
