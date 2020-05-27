@@ -2,19 +2,19 @@
 
 exports[`Event component renders the UI as expected with day 1`] = `
 <div
-  className='event-container'
+  className="event-container"
 >
   <div
-    className='event-day'
+    className="event-day"
   >
     Today
      
   </div>
   <div
-    className='event-time'
+    className="event-time"
   />
   <div
-    className='event-title'
+    className="event-title"
   >
     Baseball practice
   </div>
@@ -23,18 +23,18 @@ exports[`Event component renders the UI as expected with day 1`] = `
 
 exports[`Event component renders the UI as expected without day 1`] = `
 <div
-  className='event-container'
+  className="event-container"
 >
   <div
-    className='event-day'
+    className="event-day"
   >
      
   </div>
   <div
-    className='event-time'
+    className="event-time"
   />
   <div
-    className='event-title'
+    className="event-title"
   >
     Baseball practice
   </div>
