@@ -15,7 +15,7 @@ MyFamily allows a household to keep all of thier daily events, tasks and lists o
 ![myfamily home page](https://github.com/bmckenna1982/my-family/raw/master/images/homePage.PNG "MyFamily Home Page")
 
 ### Calendar
-![myfamily calendar](https://github.com/bmckenna1982/my-family/raw/master/images/calendar.PNG "MyFamily Calendar")
+![myfamily calendar](https://github.com/bmckenna1982/my-family/raw/master/images/calendarWeek.PNG "MyFamily Calendar")
 
 ### Tasks
 ![myfamily tasks](https://github.com/bmckenna1982/my-family/raw/master/images/tasks.PNG "MyFamily Tasks")
