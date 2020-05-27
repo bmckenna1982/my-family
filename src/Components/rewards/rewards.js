@@ -38,7 +38,6 @@ class Rewards extends Component {
   }
 
   hideModal = (e) => {
-    console.log('hide')
     RewardsService.getAllRewards()
       .then(res => {
         this.setState({
@@ -50,7 +49,6 @@ class Rewards extends Component {
   }
 
   claimReward(reward) {
-    console.log('reward', reward)
     this.setState({ selectedReward: reward })
     if (this.context.currentUser.points < reward.points) {
       this.setState({ error: { message: `Currently not enough points for reward` } })
@@ -62,7 +60,7 @@ class Rewards extends Component {
 
   renderClaimed = () => {
     let claimed = this.state.rewards.filter(reward => reward.claimed == true)
-    console.log('this.state.rewards', this.state.rewards)
+
     return claimed.map((reward, index) => (
       <div className='reward-container claimed' key={index}>
         <div className='claimed-item'>
@@ -93,7 +91,6 @@ class Rewards extends Component {
   }
 
   render() {
-    console.log('render rewards')
     const { error } = this.state
     return (
       <div className='rewards'>

@@ -40,7 +40,6 @@ const FamilyService = {
       body: JSON.stringify(family_name)
     })
       .then(res => {
-        console.log('res', res)
         return (!res.ok)
           ? res.json().then(e => Promise.reject(e))
           : res.json()

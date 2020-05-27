@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom'
 import AppContext from '../context/appContext'
 import './login.css'
 
-import TokenService from '../services/token-services';
 import AuthApiService from '../services/auth-api-services';
 
 class Login extends Component {
@@ -21,11 +20,6 @@ class Login extends Component {
     const { location, history } = this.props;
     const destination = (location.state || {}).from || '/home';
     history.push(destination)
-    // this.context.setLoggedIn(true)
-    //   .then(() => {
-    //     console.log('logged in')
-    //     history.push(destination);
-    //   })
   }
 
   handleSubmitJwtAuth = ev => {
@@ -56,11 +50,9 @@ class Login extends Component {
           <div role='alert'>{error && <p className='red'>{error}</p>}</div>
           <legend>Log in to your account</legend>
           <div>
-            {/* <label htmlFor='user-name'>Email</label> */}
             <input type='text' name='email' id='email' placeholder='Email' />
           </div>
           <div>
-            {/* <label htmlFor='password'>Password</label> */}
             <input type='password' name='password' id='password' placeholder='Password' />
           </div>
           <button className='bttn' type='submit'>Log in</button>

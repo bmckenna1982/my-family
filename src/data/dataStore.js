@@ -1,5 +1,5 @@
 export default {
-  "events": [
+  'events': [
     {
       title: 'Event Title',
       date: new Date(),
@@ -7,7 +7,7 @@ export default {
       end_time: '16:30',
     },
   ],
-  "lists": [
+  'lists': [
     {
       name: 'Groceries',
       open: false,
@@ -53,7 +53,7 @@ export default {
       ]
     }
   ],
-  "tasks": [
+  'tasks': [
     {
       title: 'Feed the Dogs',
       points: '20',
@@ -91,7 +91,7 @@ export default {
       completedBy: ''
     },
   ],
-  "users": [
+  'users': [
     {
       firstName: 'Brian',
       lastName: 'McKenna',
@@ -105,7 +105,7 @@ export default {
       points: '200'
     },
   ],
-  "rewards": [
+  'rewards': [
     {
       title: 'tier 1 reward',
       points: '200'

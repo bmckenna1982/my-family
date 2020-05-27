@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import Event from '../event/event'
 import AddItemLink from '../addItemLink/addItemLink'
@@ -32,19 +32,12 @@ class UpcomingEvents extends Component {
     return (
       <section className='upcoming-events'>
         <h2>Upcoming Events</h2>
-        {/* <Link to='/add-event' > */}
         <AddItemLink location='/add-event' itemName='Event' />
-        {/* </Link> */}
-        {/* <div className='calendar-link'>
-          <a href='/calendar'>View Calendar</a>
-        </div> */}
         {this.state.events.map((event, index) => {
           //test date to show today if its today
           return <Event key={index} day={eventDate(event.event_date)} time={eventTime(event.start_time)} title={event.title} />
         })
         }
-        {/* <Event day='Wed 14' time='3pm' title='Baseball practice' /> */}
-
       </section>
     )
   }

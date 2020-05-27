@@ -53,7 +53,6 @@ const AuthApiService = {
       }
       )
       .then(res => {
-        console.log('second res', res);
         TokenService.saveAuthToken(res)
         TokenService.queueCallbackBeforeExpiry(() => {
           AuthApiService.postRefreshToken()

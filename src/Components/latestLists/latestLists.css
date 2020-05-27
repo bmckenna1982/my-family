@@ -15,15 +15,6 @@
   margin-bottom: 20px;
 }
 
-/* .list-input {
-  display:  flex;
-  justify-content: center;
-  opacity: 0;
-  max-height: 0;
-  overflow-y: hidden;
-  transition: all 0.4s ease-in-out;
-} */
-
 .icon-plus {
   height: auto;
   padding: 0 15px;  
@@ -34,14 +25,7 @@
   cursor: pointer;  
 }
 
-/* .latest-list-container.open .list-input {
-  max-height: 1000px;
-  opacity: 1;
-} */
-
 .latest-list-container.open .latest-list-wrapper .icon-plus {
-  /* max-height: 0;
-  overflow-y: hidden; */
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../header/header'
 import List from '../list/list'
-import TaskCheck from '../taskCheck/taskCheck'
-import AddItemLink from '../addItemLink/addItemLink'
 import AddList from '../addList/addList'
 import ListInput from '../listInput/listInput'
 import AppContext from '../context/appContext'
@@ -73,11 +71,9 @@ class ListsPage extends Component {
   }
 
   render() {
-    const currentLists = this.context.lists
     return (
       <div className='Shopping Lists'>
         <Header pageTitle='Shopping Lists' />
-        {/* <AddItemLink itemName='List' /> */}
         <div className='icon-plus' onClick={this.handleClick}>
           <FontAwesomeIcon icon={faPlus} />
           Create List

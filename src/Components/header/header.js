@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PointsBar from '../pointsBar/pointsBar'
 
 class Header extends Component {
   render() {

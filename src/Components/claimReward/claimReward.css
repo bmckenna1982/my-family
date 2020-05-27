@@ -1,15 +1,4 @@
-/* html, body {
-  height: 100%;
-}
-body {
-  background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 .claim-reward {
-  /* width: 500px; */
   z-index: 1000;
   position: fixed;
   top: 50%;
@@ -20,7 +9,6 @@ body {
   transition: 1.1s ease-out;
   box-shadow: 1rem 1rem 1rem rgba(0,0,0, 0.2);
   filter: blur(0);
-  /* transform: scale(1);   */
   transform: translate(-50%, -50%);
   opacity: 1;
   visibility: visible;

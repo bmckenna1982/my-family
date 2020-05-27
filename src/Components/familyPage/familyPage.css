@@ -1,7 +1,3 @@
-/* .family-page {
-  min-height: calc(100vh - 45px);
-} */
-
 .family-member {
   display: flex;  
   position: relative;
@@ -16,16 +12,6 @@
   height: 75px;
   width: 65px;
 }
-
-/* .family-member:nth-child(even):before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1px; 
-  background: black; 
-  top: 100%;
-  left: 0;
-} */
 
 .points-history {
   flex: 2;

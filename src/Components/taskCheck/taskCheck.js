@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import TasksService from "../services/tasks-services";
+import React, { Component } from 'react';
+import TasksService from '../services/tasks-services';
 import AppContext from '../context/appContext'
 class TaskCheck extends Component {
   static contextType = AppContext
@@ -7,7 +7,6 @@ class TaskCheck extends Component {
   handleChange = (e) => {
     e.preventDefault()
     const taskToUpdateId = this.props.taskId
-    //need to also get logged in user and send user_id so points will be added
     const fieldsToUpdate = {
       complete: e.target.checked,
       completed_date: new Date(),

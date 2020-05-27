@@ -10,10 +10,8 @@ class CompletedTasksList extends Component {
   }
 
   componentDidMount() {
-    console.log('this.props.member', this.props.member)
     TasksService.getAllTasksByUser(this.props.member)
       .then(res => {
-        console.log('res', res)
         this.setState({
           tasks: [...res]
         })

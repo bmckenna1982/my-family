@@ -5,7 +5,6 @@ import AddItemLink from '../addItemLink/addItemLink'
 import { extractMonth } from '../utils/utils'
 import AppContext from '../context/appContext'
 import './calendar.css'
-import EventsService from '../services/events-services'
 
 
 class Calendar extends Component {
@@ -35,8 +34,6 @@ class Calendar extends Component {
         </header>
         <AddItemLink location='/add-event' itemName='Event' />
         <div className='tab-selection'>
-          {/* instead of tab make it two divs one says view week one says view month
-          each sets the close to the other view */}
           <button className={'bttn week-tab ' + (this.state.showMonth ? '' : 'active')} id='week-tab' onClick={() => this.showMonth(false)}>Week</button>
           <button className={'bttn month-tab ' + (this.state.showMonth ? 'active' : '')} id='month-tab' onClick={() => this.showMonth(true)}>Month</button>
         </div>

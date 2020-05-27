@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom'
 import TokenService from '../services/token-services'
-import IdleService from "../services/idle-services";
+import IdleService from '../services/idle-services';
 import AppContext from '../context/appContext'
 import './nav.css'
 
@@ -22,11 +22,9 @@ class Nav extends Component {
   changeNav = (e) => {
     document.querySelector('#hamburger').classList.toggle('open')
     document.querySelector('#nav-list').classList.toggle('close')
-    // document.querySelector(e.target.value).classList.toggle('active')
   }
 
   render() {
-    console.log('render Nav')
     return (
       <nav role='navigation' className='nav-list close' id='nav-list'>
         <NavLink onClick={this.changeNav} exact to='/home'>Home</NavLink>

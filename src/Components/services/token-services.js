@@ -6,7 +6,6 @@ const _TEN_SECONDS_IN_MS = 10000
 
 const TokenService = {
   saveAuthToken(token) {
-    console.log('then res', token)
     window.sessionStorage.setItem(config.TOKEN_KEY, token.authToken)
     window.sessionStorage.setItem(config.SESSION_KEY, token.sessionId)
   },
