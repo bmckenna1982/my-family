@@ -13,6 +13,9 @@ class LandingPage extends Component {
           <Link to='/log-in'>
             <button type='button' className='bttn demo'>Explore MyFamily</button>
           </Link>
+          <div className='scroll-indicator'>
+            <div className='indicator-arrow'></div>
+          </div>
         </header>
         <section>
           <header>

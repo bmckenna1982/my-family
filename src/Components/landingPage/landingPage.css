@@ -2,11 +2,11 @@
   display: block;
 }
 .landing-page-header{
-  height: 518px;
+  min-height: 560px;
+  position: relative;
 }
 
 .landing-page-header h1, .landing-page-header p {
-  font-size: 1.5em;
   padding-bottom: 30px;
 }
 
@@ -21,4 +21,39 @@
      -moz-box-shadow: 5px 5px 10px rgba(0,0,0, .4);
           box-shadow:  5px 5px 10px rgba(0,0,0, .4);
 
+}
+
+.scroll-indicator {
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    border: 1px solid #000;
+    position: absolute;
+    bottom: 1rem;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    left: 50%;
+    margin-left: -1.3rem;
+    /* margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline; */
+}
+
+.indicator-arrow {
+    margin-top: -.2rem;
+    width: .8rem;
+    height: .8rem;
+    transform: rotate(45deg);
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.landing-page section header {
+  padding: 0;
 }
