@@ -24,7 +24,7 @@ class Task extends Component {
           <div className='task-title'>{this.props.title}</div>
           <div className='point-value'>{this.props.points}pts</div>
         </div>
-        <Link to='/edit-task'>
+        <Link to='/edit-task' aria-label='edit task'>
           <FontAwesomeIcon icon={faEdit} className='edit-icon' onClick={() => this.context.openEdit(this)} />
         </Link>
       </div>

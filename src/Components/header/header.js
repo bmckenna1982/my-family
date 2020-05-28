@@ -4,7 +4,7 @@ import './header.css'
 class Header extends Component {
   render() {
     return (
-      <header className='header' role='banner'>
+      <header className='header'>
         <h1>{this.props.pageTitle}</h1>
       </header>
     )

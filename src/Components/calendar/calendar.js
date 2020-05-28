@@ -29,7 +29,7 @@ class Calendar extends Component {
 
     return (
       <div className='calendar'>
-        <header className='calendar-month' role='banner'>
+        <header className='calendar-month'>
           <h1>{extractMonth(new Date())}</h1>
         </header>
         <AddItemLink location='/add-event' itemName='Event' />

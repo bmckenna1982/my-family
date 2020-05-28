@@ -28,7 +28,7 @@ class ListCheck extends Component {
     let itemChecked = this.props.checked
     const listItemId = this.props.taskId
     return (
-      <input className='listItem-check' type='checkbox' name={`listItem-${listItemId}`} id={`listItem-${listItemId}`} onChange={this.handleChange} checked={itemChecked} />
+      <input aria-label='list check' className='listItem-check' type='checkbox' name={`listItem-${listItemId}`} onChange={this.handleChange} checked={itemChecked} />
 
     )
   }

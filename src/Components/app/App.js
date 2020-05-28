@@ -244,10 +244,10 @@ class App extends Component {
     return (
       <AppContext.Provider value={contextValue} >
         <div className='App'>
-          <TopBar />
           <Hamburger />
           <Nav />
           <main role='main'>
+            <TopBar />
             <Switch>
               <Route exact path='/' component={LandingPage} />
               <PrivateRoute exact path='/home' component={HomePage} />

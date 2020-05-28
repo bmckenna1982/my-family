@@ -28,7 +28,7 @@ class TaskCheck extends Component {
     const task_id = this.props.taskId
 
     return (
-      <input className='task-check' type='checkbox' name={`task-${task_id}`} id={`task-${task_id}`} onChange={this.handleChange} checked={itemChecked} />
+      <input aria-label='task check' className='task-check' type='checkbox' name={`task-${task_id}`} id={`task-${task_id}`} onChange={this.handleChange} checked={itemChecked} />
 
     )
   }

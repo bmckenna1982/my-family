@@ -2,13 +2,13 @@ import config from '../../config'
 import TokenService from './token-services'
 
 const PointsService = {
-
   getPointsByUser() {
     return fetch(`${config.API_ENDPOINT}/points`, {
       headers: {
         'Authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json'
       },
+      method: 'GET',
     })
       .then(res =>
         (!res.ok)

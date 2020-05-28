@@ -7,7 +7,7 @@ class LandingPage extends Component {
   render() {
     return (
       <div className='landing-page'>
-        <header role='banner' className='landing-page-header'>
+        <header className='landing-page-header'>
           <h1>Keep it together with MyFamily.</h1>
           <p>MyFamily keeps your loved ones organized and helps motivate your children with task points and rewards.</p>
           <Link to='/log-in'>

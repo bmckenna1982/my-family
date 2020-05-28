@@ -10,10 +10,11 @@ nav {
   vertical-align: middle;
   background: rgba(8,88,112,1);
   height: 100%;
-  padding-top: 10px;
+  padding-top: 40px;
   margin: 0;
   width: 200px;
   transition: 0.4s;
+  z-index: 100;
 }
 
 nav a {
@@ -38,7 +39,7 @@ nav a {
 
 .nav-list .active {
   background-color: rgba(10,129,209, .5);
-  color: rgba(35, 44, 51, 1);
+  color: #fff;
   border-left: 5px solid #eee;
 }
 

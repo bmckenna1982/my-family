@@ -62,6 +62,7 @@ class Register extends Component {
           res.newUser = { ...newUser, family: res.id }
         )
         .then(res => {
+          console.log('res', res)
           if (!res) {
             return res.status(404).json({
               error: { message: `Family already exists` }
@@ -85,16 +86,19 @@ class Register extends Component {
         })
     } else {
       FamilyService.getAllFamilies()
-        .then(families =>
-          families.filter(family => family.family_name === newUser.family)[0]
+        .then(res => {
+          console.log('res', res)
+          res.family = res.filter(family => family.family_name === newUser.family)[0]
+          console.log('family', res)
+          return res
+        }
         )
         .then(res => {
-          if (!res) {
-            return res.status(404).json({
-              error: { message: `Family doesn't exist` }
-            })
+          console.log('res', res)
+          if (!res.family) {
+            throw new Error('Family does not exist')
           }
-          newUser = { ...newUser, family: res.id }
+          newUser = { ...newUser, family: res.family.id }
           AuthApiService.postUser(newUser)
             .then(user => {
               first_name.value = ''
@@ -104,9 +108,14 @@ class Register extends Component {
               family.value = ''
               this.handleRegistrationSuccess()
             })
-            .catch(res => {
-              this.setState({ error: res.error })
+            .catch(err => {
+              console.log('post err', err)
+              this.setState({ error: { message: err.error } })
             })
+        })
+        .catch(err => {
+          console.log('catch err', err)
+          this.setState({ error: { message: 'Family does not exist' } })
         })
     }
   }

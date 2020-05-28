@@ -17,7 +17,10 @@
 
 .icon-plus {
   height: auto;
-  padding: 0 15px;  
+  padding: 0 15px;
+  background: none;
+  border: none;
+  transition: .5s;
   
 }
 

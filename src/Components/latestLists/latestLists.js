@@ -62,9 +62,9 @@ class LatestLists extends Component {
           <div key={index} className={'latest-list-container ' + (list.open ? 'open' : '')}>
             <div className='latest-list-wrapper'>
               <div className='list-name'>{list.title}</div>
-              <div className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
+              <button type='button' className='icon-plus' onClick={() => this.context.toggleListOpen(index)}>
                 <FontAwesomeIcon icon={faPlus} />
-              </div>
+              </button>
             </div>
             {this.isOpen(list)}
           </div>

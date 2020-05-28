@@ -4,3 +4,8 @@
     overflow-y: hidden;
     transition: all 0.4s ease-in-out;
   }
+
+  .add-to-list {
+    background: none;
+    border: none;
+  }

@@ -7,13 +7,15 @@ class PointsBar extends Component {
 
   static contextType = AppContext
   componentDidMount() {
-
     let userId = TokenService.getSessionId()
     UsersService.getById(userId)
       .then(user => {
+        console.log('user', user)
         PointsService.getPointsByUser()
           .then(userPoints => {
-            user.points = userPoints.points
+            console.log('userPoints', userPoints)
+            user.points = userPoints
+            console.log('user', user)
             this.context.setCurrentUser(user)
           })
       })

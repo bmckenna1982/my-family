@@ -41,10 +41,10 @@ class ListInput extends Component {
   render() {
     return (
       <div className='list-input'>
-        <input type='text' name='list-input-title' id='list-input-title' placeholder={'List item name'} onChange={this.handleChange} value={this.state.newItem} />
-        <div className='add-to-list' onClick={this.handleClick} >
+        <input type='text' aria-label="list item" name='list-input-title' placeholder={'List item name'} onChange={this.handleChange} value={this.state.newItem} />
+        <button type='button' aria-label="add list item" className='add-to-list' onClick={this.handleClick} >
           <FontAwesomeIcon icon={faPlus} />
-        </div>
+        </button>
       </div>
     )
   }
