@@ -62,7 +62,6 @@ class Register extends Component {
           res.newUser = { ...newUser, family: res.id }
         )
         .then(res => {
-          console.log('res', res)
           if (!res) {
             return res.status(404).json({
               error: { message: `Family already exists` }
@@ -87,14 +86,11 @@ class Register extends Component {
     } else {
       FamilyService.getAllFamilies()
         .then(res => {
-          console.log('res', res)
           res.family = res.filter(family => family.family_name === newUser.family)[0]
-          console.log('family', res)
           return res
         }
         )
         .then(res => {
-          console.log('res', res)
           if (!res.family) {
             throw new Error('Family does not exist')
           }
@@ -109,12 +105,10 @@ class Register extends Component {
               this.handleRegistrationSuccess()
             })
             .catch(err => {
-              console.log('post err', err)
               this.setState({ error: { message: err.error } })
             })
         })
         .catch(err => {
-          console.log('catch err', err)
           this.setState({ error: { message: 'Family does not exist' } })
         })
     }

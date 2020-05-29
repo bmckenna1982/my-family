@@ -22,6 +22,7 @@ import LandingPage from '../landingPage/landingPage'
 import TokenService from '../services/token-services';
 import AuthApiService from '../services/auth-api-services';
 import IdleService from '../services/idle-services';
+import EditTask from '../editTask/editTask'
 import './App.css';
 
 import AppContext from '../context/appContext'
@@ -255,12 +256,14 @@ class App extends Component {
               <PublicOnlyRoute exact path='/register' component={Register} />
               <PrivateRoute exact path='/calendar' component={Calendar} />
               <PrivateRoute exact path='/tasks' component={TasksPage} />
+              <PrivateRoute exact path='/tasks/:task_id' component={EditTask} />
               <PrivateRoute exact path='/lists' component={ListPage} />
               <PrivateRoute exact path='/family' component={FamilyPage} />
               <PrivateRoute exact path='/rewards' component={Rewards} />
               <PrivateRoute exact path='/add-event' component={AddEvent} />
               <PrivateRoute exact path='/add-task' component={AddTask} />
               <PrivateRoute exact path='/add-reward' component={AddReward} />
+              {/* <PrivateRoute exact path='/edit-task' component={EditTask} /> */}
             </Switch>
           </main>
         </div>
