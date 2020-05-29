@@ -50,7 +50,7 @@ class Register extends Component {
     const { first_name, last_name, email, password, confirm_password, family } = ev.target
     if (password !== confirm_password) {
       console.log('no match')
-      this.setState({ error: { message: 'Password confirmation does not' } })
+      this.setState({ error: { message: 'Password confirmation does not match' } })
       return
     }
     let newUser = {
