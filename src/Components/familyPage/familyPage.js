@@ -23,7 +23,18 @@ class FamilyPage extends Component {
           members: [...res]
         })
       })
+
   }
+  // getUserPoints= () => {
+  //   TasksService.getAllTasksByUser(this.props.member)
+  //     .then(res => {
+  //       return res.reduce((a,b) => ({points: a.points + b.points}))        
+  //       // this.setState({
+  //       //   tasks: [...res]
+  //       // })
+  //     })
+  // }
+
 
   render() {
     return (
@@ -36,6 +47,7 @@ class FamilyPage extends Component {
                 <img className='member-image' src='https://my-family-app.s3.us-east-2.amazonaws.com/family-boy.svg' alt='cartoon boy' />
               </div>
               <div className='member-name'>{member.first_name}</div>
+
               <div className='points-total'>{member.points || 0}</div>
             </div>
             <CompletedTasksList member={member.id} />
