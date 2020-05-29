@@ -47,7 +47,12 @@ class Register extends Component {
   handleSubmit = ev => {
     ev.preventDefault()
 
-    const { first_name, last_name, email, password, family } = ev.target
+    const { first_name, last_name, email, password, confirm_password, family } = ev.target
+    if (password !== confirm_password) {
+      console.log('no match')
+      this.setState({ error: { message: 'Password confirmation does not' } })
+      return
+    }
     let newUser = {
       first_name: first_name.value,
       last_name: last_name.value,
