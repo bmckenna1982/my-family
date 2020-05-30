@@ -4,6 +4,7 @@ import CompletedTasksList from '../completedTasksList/completedTasksList'
 import './familyPage.css'
 import UsersService from '../services/users-service'
 import AppContext from '../context/appContext'
+import PointsService from '../services/points-service'
 
 class FamilyPage extends Component {
   constructor(props) {
@@ -25,15 +26,16 @@ class FamilyPage extends Component {
       })
 
   }
-  // getUserPoints= () => {
-  //   TasksService.getAllTasksByUser(this.props.member)
-  //     .then(res => {
-  //       return res.reduce((a,b) => ({points: a.points + b.points}))        
-  //       // this.setState({
-  //       //   tasks: [...res]
-  //       // })
-  //     })
-  // }
+  getUserPoints = (user_id) => {
+    PointsService.getPointsByUser(user_id)
+      .then(res => {
+        console.log('res', res)
+        // return res.reduce((a,b) => ({points: a.points + b.points}))        
+        // this.setState({
+        //   tasks: [...res]
+        // })
+      })
+  }
 
 
   render() {
@@ -48,7 +50,7 @@ class FamilyPage extends Component {
               </div>
               <div className='member-name'>{member.first_name}</div>
 
-              <div className='points-total'>{member.points || 0}</div>
+              <div className='points-total'>{this.getUserPoints(member.id) || 0}</div>
             </div>
             <CompletedTasksList member={member.id} />
           </section>
