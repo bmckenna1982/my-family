@@ -83,7 +83,6 @@ class EditTask extends Component {
   }
 
   handleUpdate = () => {
-    console.log('update')
     TasksService.updateTask(this.state.task.id, this.state.task)
       .then(res => {
         this.props.history.goBack()

@@ -48,10 +48,8 @@ class Register extends Component {
     ev.preventDefault()
 
     const { first_name, last_name, email, password, confirm_password, family } = ev.target
-    console.log('password', password)
-    console.log('confirm_password', confirm_password)
+
     if (password.value !== confirm_password.value) {
-      console.log('no match')
       this.setState({ error: { message: 'Password confirmation does not match' } })
       return
     }

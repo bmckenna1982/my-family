@@ -250,7 +250,7 @@ class App extends Component {
           <main role='main'>
             <TopBar />
             <Switch>
-              <Route exact path='/' component={LandingPage} />
+              <PublicOnlyRoute exact path='/' component={LandingPage} />
               <PrivateRoute exact path='/home' component={HomePage} />
               <PublicOnlyRoute exact path='/log-in' component={Login} />
               <PublicOnlyRoute exact path='/register' component={Register} />
